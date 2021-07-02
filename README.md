@@ -1,10 +1,10 @@
 ## クエストノート　概要
-掲示板に張り出されるクエスト（おてつだい）をクリアすることで今ある課題を解決できます。
-親御さんはしてほしいことを掲示板に張り出すことでお子さんに解決してほしいことを依頼できます。
-お子さんはクエストをクリアすることで報酬（おこづかい）をゲットできます。
+- 掲示板に張り出されるクエスト（おてつだい）をクリアすることで今ある課題を解決できます。
+- 親御さんはしてほしいことを掲示板に張り出すことでお子さんに解決してほしいことを依頼できます。
+- お子さんはクエストをクリアすることで報酬（おこづかい）をゲットできます。
 
 ### サイトテーマ
-「掲示板」を活用した課題解決＋教育アプリケーション
+- 「クエスト掲示板」を活用した課題解決＋教育アプリケーション
 
 ### テーマを選んだ理由
 
@@ -17,24 +17,24 @@
 
 
 ### ターゲットユーザー
-家族間
-友人間
+- 家族間
+- 友人間
 
 ### 主な利用シーン
-第三者に解決してほしいこと（お使い、家事、悩みことを）があるとき
+- 第三者に解決してほしいこと（お使い、家事、悩みことを）があるとき
 
 ER図
-https://drive.google.com/file/d/1WwHLEC5vzHvJx5xtPL98yOkYMq9-rIQV/view?usp=sharing
+- https://drive.google.com/file/d/1WwHLEC5vzHvJx5xtPL98yOkYMq9-rIQV/view?usp=sharing
 
 テーブル定義書
-https://docs.google.com/spreadsheets/d/1leFamzOVsVc_qn29iNhLqT6abqFQZJA9uBjcppV-odY/edit?usp=sharing
+- https://docs.google.com/spreadsheets/d/1leFamzOVsVc_qn29iNhLqT6abqFQZJA9uBjcppV-odY/edit?usp=sharing
 
 アプリケーション詳細設計
-TBA
+- https://docs.google.com/spreadsheets/d/1GUfQJSdHcQY7c5OXADrJpIzra4JjYW8rpZ1OUU-j6hI/edit?usp=sharing
 
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1--in7Fo_eqki4oe4vpM5VypIQ420ltXVgZuQChJML8s/edit?usp=sharing
+- https://docs.google.com/spreadsheets/d/1--in7Fo_eqki4oe4vpM5VypIQ420ltXVgZuQChJML8s/edit?usp=sharing
 
 
 ## 開発環境
