@@ -1,24 +1,53 @@
-# README
+## <くえすとのーと>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+掲示板に張り出されるクエスト（おてつだい）をクリアすることで今ある課題を解決できます。
+親御さんはしてほしいことを掲示板に張り出すことでお子さんに解決してほしいことを依頼できます。
+お子さんはクエストをクリアすることで報酬（おこづかい）をゲットできます。
 
-Things you may want to cover:
+### サイトテーマ
+「掲示板」を活用した課題解決＋教育アプリケーション
 
-* Ruby version
+### テーマを選んだ理由
 
-* System dependencies
+子どもの頃自身でお金を稼ぎたいと思ったことがありました。バイトはできないけどお父さん、お母さんのお手伝いをすることでお小遣いをもらっていた頃が皆さんにもあるかと思います。
+あのころこのようなサイトが合ったら必ず使用していたと思うものを作りたいと思いました。
+おつかいをしてほしいけど頼むのを忘れてしまったなどついうっかりしてしまうことがあると思います。
+このアプリを使えばお子さんに働く楽しさを幼少期から覚え、金銭感覚をお子さんに養ってもらう良い機会になると思います。
+グループ間で使用できるのでもちろん友達の間でも使用することができます。
+親子間、友人間のコミュニケーションの橋渡しになればいいと思い今回このテーマを選びました。
 
-* Configuration
 
-* Database creation
+### ターゲットユーザー
+家族間
+友人間
 
-* Database initialization
+### 主な利用シーン
+第三者に解決してほしいこと（お使い、家事、悩みことを）があるとき。
 
-* How to run the test suite
+ER図
+TBA
 
-* Services (job queues, cache servers, search engines, etc.)
+テーブル定義書
+TBA
 
-* Deployment instructions
+アプリケーション詳細設計
+TBA
 
-* ...
+
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1--in7Fo_eqki4oe4vpM5VypIQ420ltXVgZuQChJML8s/edit?usp=sharing
+
+
+## 開発環境
+- OS：Amazon Linux2
+- 言語：HTML,CSS(SASS),JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：
+  - jQuery
+  - raty.js　
+  - Full calendar
+
+- IDE：Cloud9
+
+
