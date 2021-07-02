@@ -26,10 +26,10 @@
 第三者に解決してほしいこと（お使い、家事、悩みことを）があるとき
 
 ER図
-https://app.diagrams.net/#G1WwHLEC5vzHvJx5xtPL98yOkYMq9-rIQV
+https://drive.google.com/file/d/1WwHLEC5vzHvJx5xtPL98yOkYMq9-rIQV/view?usp=sharing
 
 テーブル定義書
-https://docs.google.com/spreadsheets/d/1leFamzOVsVc_qn29iNhLqT6abqFQZJA9uBjcppV-odY/edit#gid=357157442
+https://docs.google.com/spreadsheets/d/1leFamzOVsVc_qn29iNhLqT6abqFQZJA9uBjcppV-odY/edit?usp=sharing
 
 アプリケーション詳細設計
 TBA
