@@ -7,7 +7,6 @@
 
       <div class="profile-icon">
   	    <label>
-
   	      <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
   	    </label>
   	  </div>
@@ -15,7 +14,7 @@
       <div class='profile-basis'>
         <div class="form-group">
           <p>名前</p>
-          <div><%= attachment_image_tag(@user, :image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></div>
+          <div><%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></div>
           <%= f.text_field :name, :placeholder =>"#{@user.name}", class:"form-control" %>
         </div>
 
@@ -40,20 +39,6 @@
       </div>
     </div>
     <% end %>
-  </div>
-
-  <div class="mypage-link">
-    <div class="my-group-link">
-      <%= link_to groups_path do %>
-        <i class="fas fa-users"></i>　My Teamへ
-      <% end %>
-    </div>
-
-    <div class="my-task-link">
-      <%= link_to quests_path(user_id: @user) do %>
-        <i class="fas fa-tasks"></i>　My タスク画面へ
-      <% end %>
-    </div>
   </div>
 
 

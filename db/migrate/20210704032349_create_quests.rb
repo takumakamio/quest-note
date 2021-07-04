@@ -1,8 +1,8 @@
 class CreateQuests < ActiveRecord::Migration[5.2]
   def change
     create_table :quests do |t|
-      t.integer :user_id, null: false
-      t.integer :list_id, null: false
+      t.references :user, foreign_key: true
+      t.references :list, foreign_key: true
       t.string :quest_title, null: false
       t.text :quest_details
       t.integer :quest_status

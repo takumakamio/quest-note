@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'quests/new'
-  get 'records/new'
-  get 'lists/new'
-  get 'group_users/new'
-  get 'groups/new'
-  get 'users/new'
   devise_for :users
   root to: 'homes#top'
-
+  resources :lists ,except: [:index]
   resources :users, only: %i[edit update]
-  resources :lists, except: %i[index]
+
   resources :quests
   resources :records, only: %i[index]
   # resources :calendars, only: [:index]
