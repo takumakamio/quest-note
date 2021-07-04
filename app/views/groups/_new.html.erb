@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @group, local:true do |f| %>
+        <%= f.label :group_name, "Team名" %>
+        <%= f.text_field :group_name %>
+        <%= f.submit "新規ギルドを作成", class: "m-5 btn btn-secondary btn-sm"  %>
+      <% end %>
+    </div>
+  </div>
+</div>

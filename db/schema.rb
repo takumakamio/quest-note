@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_07_04_032357) do
 
   create_table "group_users", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "group_id", null: false
+    t.integer "group_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -27,15 +29,16 @@ ActiveRecord::Schema.define(version: 2021_07_04_032357) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "list_title", null: false
+    t.integer "user_id"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "quests", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "list_id", null: false
+    t.integer "user_id"
+    t.integer "list_id"
     t.string "quest_title", null: false
     t.text "quest_details"
     t.integer "quest_status"
@@ -45,15 +48,18 @@ ActiveRecord::Schema.define(version: 2021_07_04_032357) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_quests_on_list_id"
+    t.index ["user_id"], name: "index_quests_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer "quest_id", null: false
+    t.integer "quest_id"
     t.integer "total_prize_maoney", null: false
     t.integer "total_quest", null: false
     t.integer "average_rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["quest_id"], name: "index_records_on_quest_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  
+
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:show, :update, :destroy, :confirm, :destroy_confirm, :withdrawal_confirm, :withdrawal]
 
@@ -76,10 +76,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy_confirm
-    @group = Group.find(params[:id])
-  end
-
   def destroy
     group = Group.find(params[:id])
 
@@ -114,7 +110,7 @@ class GroupsController < ApplicationController
 
   def ensure_correct_user
     unless Group.find_by(id: params[:id]).nil?
-      
+
       @group = Group.find(params[:id])
       @group_user = GroupUser.where(group_id: @group.id)
       unless @group_user.where(user_id: current_user).present?
@@ -122,6 +118,6 @@ class GroupsController < ApplicationController
       end
     else
       redirect_to groups_path
-    end 
+    end
   end
 end
