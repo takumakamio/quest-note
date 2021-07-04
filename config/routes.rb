@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'quests/new'
+  get 'records/new'
+  get 'lists/new'
+  get 'group_users/new'
+  get 'groups/new'
+  get 'users/new'
+  devise_for :users
+  root to: 'homes#top'
+
+  resources :users, only: %i[edit update]
+  resources :lists, except: %i[index]
+  resources :quests
+  resources :records, only: %i[index]
+  # resources :calendars, only: [:index]
+  resources :groups, only: %i[index create show update destroy]
+  post 'groups/:id/confirm' => 'groups#confirm'
+  get 'groups/:id/destroy_confirm' => 'groups#destroy_confirm', as: 'group_destroy_confirm'
+  get 'groups/:id/withdrawal_confirm' => 'groups#withdrawal_confirm', as: 'group_withdrawal_confirm'
+  delete 'groups/:id/withdrawal' => 'groups#withdrawal', as: 'group_withdrawal'
+
 end
