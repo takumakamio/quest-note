@@ -1,2 +1,19 @@
-<h1>Quests#new</h1>
-<p>Find me in app/views/quests/new.html.erb</p>
+<div class="questnewPgae">
+  <div class='container'>
+    <%= form_with model: @quest, url: { action: :create }, html: { class: 'questnewForm' }, local: true do |f| %>
+      <%= f.hidden_field :list_id, value: @list.id %>
+      <% if @quest.errors.any? %>
+        <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
+      <% end %>
+      <div class="questnewForm_quest_title">
+        <%= f.label :quest_title %>
+        <%= f.text_field :quest_title, autofocus: true, class: "form-control", placeholder: "カード名" %>
+      </div>
+      <div class="questnewForm_quest_detail">
+        <%= f.label :quest_detail %>
+        <%= f.text_area :quest_detail, autofocus: true, class: "form-control", placeholder: "詳細" %>
+      <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

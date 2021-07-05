@@ -35,8 +35,27 @@
             margin-right: 10px;
           }
         }
-
       }
+      .questWrapper {
+        overflow-y: scroll;
+        max-height: 76vh;
+        .addQuest {
+          color: #8c8c8c;
+          &_link {
+            color: #8c8c8c;
+          }
+        }
+      }
+    }
+  }
+}
+
+.questnewPgae {
+  .questnewForm {
+    max-width: 500px;
+    margin: 70px auto 0;
+    &_title {
+      margin-bottom: 30px;
     }
   }
 }
