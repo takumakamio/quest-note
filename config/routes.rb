@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
-  resources :lists ,except: [:index]
-  resources :users, only: %i[edit update]
-
+  resources :lists do
   resources :quests
+  end
+  
+  resources :users, only: %i[edit update]
   resources :records, only: %i[index]
   # resources :calendars, only: [:index]
   resources :groups, only: %i[index create show update destroy]
