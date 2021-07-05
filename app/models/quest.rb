@@ -6,6 +6,6 @@ class Quest < ApplicationRecord
   validates :quest_title, presence: true
   validate :start_end_check
 
-  enum quest_status: { 未着手: 0, 進行中: 1, 完了: 2 }
+  enum quest_status: { 未: 0, 進行中: 1, 完了: 2 }
 
 end
