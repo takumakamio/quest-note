@@ -8,8 +8,8 @@
 
           <div class="row">
             <div class="user-image col-3">
-            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "user_missing.png", class: "rounded-circle m-3"%>
-            <br><span class="task-count">タスク数 : <%= @user.tasks.count %></span>
+            <%= attachment_image_tag @user, :image, :fill, 60, 60, fallback: "no-image-icon.jpg", class: "rounded-circle m-3"%>
+            <br><span class="task-count">クエスト数 : <%= @user.quests.count %></span>
             </div>
             <div class="col-9 user-introduction">
               <div class="name">名前：<%= @user.name %></div>

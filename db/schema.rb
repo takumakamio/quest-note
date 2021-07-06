@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 2021_07_04_032357) do
     t.integer "list_id"
     t.string "quest_title", null: false
     t.text "quest_detail"
+    t.integer "quest_status"
+    t.integer "prize_money"
+    t.integer "rate"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["list_id"], name: "index_quests_on_list_id"

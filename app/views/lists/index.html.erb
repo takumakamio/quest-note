@@ -11,18 +11,21 @@
         </div>
 
           <div class="questWrapper">
-            <% list.quests.each do |quest| %>
+          <% list.quests.each do |quest| %>
+
             <div class="quest">
+             <%= link_to list_quest_path(list, quest), class:"questDetail_link" do %>
               <h3 class="quest_title"><%= quest.quest_title %></h3>
               <% if quest.quest_detail.size > 0 %>
                 <div class="quest_detail is-exist"><i class="fas fa-bars"></i></div>
               <% end %>
             </div>
+             <% end %>
           <% end %>
 
           <div class="addQuest">
             <i class="far fa-plus-square"></i>
-            <%= link_to "さらにカードを追加", new_list_quest_path(list), class: "addquest_link" %>
+            <%= link_to "クエストを追加", new_list_quest_path(list), class: "addquest_link" %>
           </div>
         </div>
 

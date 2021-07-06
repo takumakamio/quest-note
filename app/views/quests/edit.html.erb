@@ -1,0 +1,24 @@
+<div class="questeditPgae">
+  <div class='container'>
+    <%= form_with model: @quest, url: { action: :update }, html: { class: 'questeditForm' }, local: true do |f| %>
+      <% if @quest.errors.any? %>
+        <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
+      <% end %>
+      <div class="questeditForm_quest_title">
+        <%= f.label :quest_title %>
+        <%= f.text_field :quest_title, class: "form-control", placeholder: "カード名" %>
+      </div>
+      <div class="questeditForm_quest_detail">
+        <%= f.label :quest_detail %>
+        <%= f.text_area :quest_detail, class: "form-control", placeholder: "詳細" %>
+      </div>
+
+      <div class="questeditForm_quest_detail">
+        <label>リスト名</label>
+        <%= select :quest, :list_id, @lists.map{ |list| [list.title, list.id] }, {}, { class: 'form-control' } %>
+      </div>
+
+      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+    <% end %>
+  </div>
+</div
