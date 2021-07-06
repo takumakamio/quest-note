@@ -10,7 +10,7 @@
         <% if user_signed_in? %>
           <li><%= link_to ' ギルド', groups_path, class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to 'リスト', new_list_path, class: 'fas fa-edit nav-link text-light' %></li>
-
+          <li><%= link_to 'クエスト', lists_path, class: 'fas fa-star nav-link text-light' %></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>
           <li><%= link_to ' 新規登録', new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>

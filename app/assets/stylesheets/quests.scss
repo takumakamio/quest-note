@@ -1,60 +1,50 @@
-.topPage {
-  min-height: 93vh;
-  padding-top: 30px;
-  background: #bababa;
-  overflow-x: scroll;
-  .listWrapper {
-    display: flex;
-    height: 100%;
-    align-items: baseline;
-    .list {
-      position: relative;
-      background: #e2e4e6;
-      padding: 10px;
-      margin-left: 20px;
-      min-width: 250px;
-      &:last-child {
-        margin-right: 20px;
+//Show
+.questdetailPage {
+  .questContents {
+    margin: 60px auto 0;
+    max-width: 600px;
+    &_title {
+      h2 {
+        font-size: 22px;
       }
-      &_header {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        &_title {
-          font-size: 20px;
-          margin: 0;
-        }
-        //iconの色変更
-        &_action {
-          .fa-pen, .fa-trash {
-            font-size: 18px;
-            color: #8c8c8c;
-          }
-          .fa-pen {
-            margin-right: 10px;
+    }
+    &_quest_title, &_quest_detail, &_listStatus {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+
+        &_btnArea {
+      margin-top: 40px;
+      text-align: center;
+      & > a {
+        display: block;
+        &.edit_btn {
+          max-width: 200px;
+          margin: 0 auto;
+          background: #026aa7;
+          padding: 7px;
+          border-radius: 10px;
+          color: #fff;
+          transition: opacity .5s;
+          text-decoration: none;
+          &:hover {
+            opacity: .7;
           }
         }
-      }
-      .questWrapper {
-        overflow-y: scroll;
-        max-height: 76vh;
-        .addQuest {
-          color: #8c8c8c;
-          &_link {
-            color: #8c8c8c;
-          }
+        &.delete_btn {
+          margin-top: 20px;
         }
       }
     }
+
   }
 }
-
-.questnewPgae {
-  .questnewForm {
+// edit
+.questeditPgae {
+  .questeditForm {
     max-width: 500px;
     margin: 70px auto 0;
-    &_title {
+    &_quest_title, &_quest_detail {
       margin-bottom: 30px;
     }
   }

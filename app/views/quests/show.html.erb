@@ -1,0 +1,32 @@
+<div class='questdetailPage'>
+  <div class="container">
+    <div class="questContents">
+
+      <div class="questContents_quest_title">
+        <div>タイトル</div>
+        <h2><%= @quest.quest_title %></h2>
+      </div>
+
+      <div class="questContents_quest_detail">
+        <div>メモ</div>
+        <div><%= @quest.quest_detail %></div>
+      </div>
+
+      <div class="questContents_listStatus">
+        <div>リスト名</div>
+        <div><%= @quest.list.title %></div>
+      </div>
+
+      <div class="questContents_btnArea">
+        <%= link_to '編集する', edit_list_quest_path(@quest.list, @quest), class: "edit_btn" %>
+        <%= link_to '削除をする', list_quest_path(@quest.list, @quest), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
+
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+
+    </div>
+  </div>
+</div>
