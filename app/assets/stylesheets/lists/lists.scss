@@ -1,7 +1,7 @@
 .topPage {
-  min-height: 93vh;
+  min-height: 100vh;
   padding-top: 30px;
-  background: #bababa;
+  background: #555;
   overflow-x: scroll;
   .listWrapper {
     display: flex;
@@ -39,7 +39,7 @@
       .questWrapper {
         overflow-y: scroll;
         max-height: 76vh;
-        
+
        .cardDetail_link {
          text-decoration: none;
          color: #323232;
@@ -73,15 +73,6 @@
   }
 }
 
-.questnewPgae {
-  .questnewForm {
-    max-width: 500px;
-    margin: 70px auto 0;
-    &_title {
-      margin-bottom: 30px;
-    }
-  }
-}
 
 .listeditPage {
   .listForm {

@@ -4,7 +4,6 @@
   <%= form_with model: @user, url: user_path(@user), method: :patch, local:true do |f| %>
   <div class="profile-body">
     <div class="profile-detail">
-
       <div class="profile-icon">
   	    <label>
   	      <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
@@ -14,7 +13,7 @@
       <div class='profile-basis'>
         <div class="form-group">
           <p>名前</p>
-          <div><%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></div>
+          <div><%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no-image.png") %></div>
           <%= f.text_field :name, :placeholder =>"#{@user.name}", class:"form-control" %>
         </div>
 
@@ -40,22 +39,4 @@
     </div>
     <% end %>
   </div>
-
-
 </div>
-
-<script>
-$(function(){
-    // inputのidから情報の取得
-    $('.profile-icon').on('change', function (e) {
-// ここから既存の画像のurlの取得
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $("img").attr('src', e.target.result);
-    }
-// ここまで
-    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
-  });
-});
-
-</script>

@@ -1,0 +1,43 @@
+.group-index {
+  color: #545454;
+  .card {
+    .card-body {
+      padding: 10px 20px;
+      .group-name {
+        margin: 1%;
+        font-size: 1.1rem;
+      }
+      .member-count {
+        margin: 1%;
+        padding-top: 2%;
+        font-size: 0.9rem;
+      }
+      .user-introduction {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        img {
+          max-width: 60px;
+          object-fit: cover;
+        }
+      }
+      .delete {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 0.9rem;
+        a {
+          text-decoration: none;
+          color: #545454;
+          margin: 1% 0;
+        }
+      }
+    }
+  }
+  .card:hover {
+    background-color: rgba(0,0,0,0.1);
+    transition-duration: 0.3s;
+  }
+}
+
+.group-new {
+}
