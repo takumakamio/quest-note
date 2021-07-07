@@ -8,12 +8,13 @@ class QuestsController < ApplicationController
   end
 
   def show
+    @user= @quest.user
   end
 
   def create
     @quest = Quest.new(new_quest_params)
     if @quest.save
-      redirect_to lists_path
+      redirect_to group_lists_path
     else
       render action: :new
     end
@@ -25,7 +26,7 @@ class QuestsController < ApplicationController
 
   def update
     if @quest.update_attributes(edit_quest_params)
-      redirect_to lists_path
+      redirect_to group_lists_path
     else
       render action: :edit
     end
@@ -33,17 +34,17 @@ class QuestsController < ApplicationController
 
   def destroy
     @quest.destroy
-    redirect_to lists_path
+    redirect_to group_lists_path
   end
 
     private
     # Updateアクション時List idがうまく更新時に渡されないためマージ有り無しの別々にparamsを定義
     def new_quest_params
-      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id).merge(user: current_user, list_id: params[:list_id])
+      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money).merge(user: current_user, list_id: params[:list_id])
     end
 
     def edit_quest_params
-      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id)
+      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money)
     end
 
     def set_quest

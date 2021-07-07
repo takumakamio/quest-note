@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <%= form_with model: @group, local:true do |f| %>
-        <%= f.label :group_name, "Team名" %>
-        <%= f.text_field :group_name %>
-        <%= f.submit "新規ギルドを作成", class: "m-5 btn btn-secondary btn-sm"  %>
-      <% end %>
+    <div class="col-3">
+  <%= form_with model: @group, local:true do |f| %>
+  <div class="">新規チームを作成 </div>
+  <div class=""><%= f.label :group_name, "Team名" %></div>
+  <div class=""><%= f.text_field :group_name %> </div>
+  <div class=""><%= f.submit "新規チームを作成", class: "btn btn-secondary" %></div>
+  <% end %>
     </div>
   </div>
 </div>
+
