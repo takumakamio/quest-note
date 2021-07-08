@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :groups, only: %i[index create show update destroy] do
    resources :lists, except: %i[show] do
    resources :quests, except: %i[index]
+   post 'quests/:id/contract' => 'quests#contract', as: 'quests_contract'
    end
   end
 

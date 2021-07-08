@@ -7,6 +7,9 @@ class CreateQuests < ActiveRecord::Migration[5.2]
       t.text :quest_detail
       t.integer :quest_status
       t.integer :prize_money
+      t.boolean :is_paid
+      t.integer :contractor_id
+      t.string :contractor_name
       t.integer :rate
       t.date :start_date
       t.date :end_date

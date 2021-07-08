@@ -34,12 +34,9 @@ class GroupsController < ApplicationController
   def confirm
     # Emailが入力されているか
     if params[:email].present?
-
       @user = User.find_by(email: params[:email])
-
       # 入力されたEmailのuserは存在するか
       if @user.present?
-
         @group = Group.find(params[:id])
         @group_user = GroupUser.where(user_id: @user.id).where(group_id: @group.id)
 

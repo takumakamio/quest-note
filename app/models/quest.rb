@@ -1,7 +1,6 @@
 class Quest < ApplicationRecord
   belongs_to :user
   belongs_to :list
-  has_many :records, dependent: :destroy
 
   validates :quest_title, presence: true
   validate :start_end_check

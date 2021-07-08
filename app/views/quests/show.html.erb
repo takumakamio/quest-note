@@ -9,7 +9,7 @@
 
 　　　<div class="questContents_quest_detail">
         <div>依頼者</div>
-        <div><%= @user.name %></div>
+        <div><%= @quest_user.name %></div>
       </div>
 
       <div class="questContents_quest_detail">
@@ -37,8 +37,33 @@
         <div><%= @quest.prize_money %></div>
       </div>
 
+      <div class="questContents_listStatus">
+        <div> <%= label :contractor_id, "契約者名"%></div>
+        <div><%= @quest.contractor_name %></div>
+      </div>
+
+     <!--仕事引受のためのボタン-->
+      <% if Quest.find_by(contractor_id: params[:contractor_id]).present? %>
       <div class="questContents_btnArea">
-        
+       <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
+      　<%= f.hidden_field :contractor_id, value: @user.id %>
+      　<%= f.hidden_field :contractor_name, value: @user.name %>
+      <div class="text-center"><%= f.submit "仕事を引き受ける" %></div>
+      <% end %>
+      <% end %>
+      <!--契約解除のためのボタン-->
+      <!--本当の契約者と依頼者だけキャンセルできるように処理-->
+      <% if @quest.contractor_id == current_user.id %>
+      <% elsif @quest.user.id == current_user.id %>
+        <% unless Quest.find_by(contractor_id: params[:contractor_id]).present? %>
+         <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
+      　   <%= f.hidden_field :contractor_id, value: nil %>
+      　   <%= f.hidden_field :contractor_name, value: nil %>
+           <div class="text-center"><%= f.submit "仕事をキャンセルする" %></div>
+        <% end %>
+       <% end %>
+      <% end %>
+        <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "edit_btn" %>
         <%= link_to '編集する', edit_group_list_quest_path(@quest.list.group,@quest.list, @quest), class: "edit_btn" %>
         <%= link_to '削除をする', group_list_quest_path(@quest.list.group), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
       </div>
