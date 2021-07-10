@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
 
-  before_action :set_quest, only: %i(show edit update destroy)
+  before_action :set_quest, only: %i(show edit update destroy payment)
 
   def new
     @quest = Quest.new
@@ -39,6 +39,12 @@ class QuestsController < ApplicationController
     redirect_to group_lists_path
   end
 
+   def payment
+        #is_paidをtrueにする処理
+      @quest.update(is_paid: true)
+      redirect_to group_lists_path
+   end
+
     private
     # Updateアクション時List idがうまく更新時に渡されないためマージ有り無しの別々にSPを定義
     def new_quest_params
@@ -46,7 +52,7 @@ class QuestsController < ApplicationController
     end
 
     def edit_quest_params
-      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money,:contractor_id,:contractor_name)
+      params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money,:contractor_id,:contractor_name,:is_paid)
     end
 
     def set_quest

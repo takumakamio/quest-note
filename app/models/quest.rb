@@ -6,7 +6,9 @@ class Quest < ApplicationRecord
   validate :start_end_check
 
   enum quest_status: { 未: 0, 進行中: 1, 完了: 2 }
+  enum is_paid: { 未決済: false, 支払い済み: true}
 
+  # 開始日より終了日が早い日付ならエラーメッセージを返す
   def start_end_check
     if start_date.present? && end_date.present?
       if self.start_date > self.end_date
@@ -14,5 +16,6 @@ class Quest < ApplicationRecord
       end
     end
   end
+
 
 end

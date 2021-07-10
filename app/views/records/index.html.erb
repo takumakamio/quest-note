@@ -1,8 +1,10 @@
 <h1>マイレコード</h1>
  <% @quests.each do |quest| %>
   <div><%= quest.quest_title %></div>
-
-
  <% end %>
- <div><%= @sum_prize_money %></div>
- <div><%= @sum_quests %></div>
+ <div>こなしたクエスト数<%= @sum_quests %>件</div>
+ <div>生涯獲得賞金<%= @sum_prize_money %>円</div>
+ <!--Zero division errorを防ぐため例外処理を追加-->
+ <div>平均賞金金額<%= @sum_prize_money.div(@sum_quests) rescue 0 %>円</div>
+
+

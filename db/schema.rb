@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 2021_07_04_032349) do
     t.integer "list_id"
     t.string "quest_title", null: false
     t.text "quest_detail"
-    t.integer "quest_status"
+    t.integer "quest_status", default: 0
     t.integer "prize_money"
+    t.boolean "is_paid", default: false
     t.integer "contractor_id"
     t.string "contractor_name"
     t.integer "rate"

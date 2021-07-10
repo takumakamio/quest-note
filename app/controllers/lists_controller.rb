@@ -3,6 +3,8 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.where(group_id: params[:group_id]).order("created_at ASC")
+    # @quests = Quest.where(payment_status: false)
+    # @listsQuests = @lists && @quests
   end
 
   def new
