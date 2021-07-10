@@ -9,12 +9,12 @@
     <div class="row">
       <div class="user-image col-3">
         <%= attachment_image_tag group_user.user, :image, :fill, 60, 60, fallback: "no-image.png", class: "rounded-circle m-3"%>
-      <br><span class="quest-count">タスク数 : <%= group_user.user.quests.count %></span>
+      <br><span class="quest-count">クエスト数 : <%= group_user.user.quests.count %></span>
       </div>
       <div class="col-9 user-introduction">
         <div class="name">名前：<%= group_user.user.name %></div>
         <div class="introduction">
-          introduction： <br>
+          紹介文： 
           <%= group_user.user.introduction %>
         </div>
       </div>

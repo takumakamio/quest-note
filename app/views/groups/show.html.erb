@@ -21,12 +21,12 @@
 
       <div class="withdrawal">
         <h6>退会</h6>
-        <p>※ Teamから退会するとメンバーのタスクを閲覧できなくなります。</p>
-        <%= link_to "このTeamから退会する", group_withdrawal_confirm_path(@group) %>
+        <p>※ <%= @group.group_name %>から退会すると<%= @group.group_name %>のクエストを閲覧できなくなります。</p>
+        <%= link_to "#{@group.group_name}を退会する", group_withdrawal_confirm_path(@group) %>
       </div>
 
       <div class="back-group-index">
-        <%= link_to "< Team一覧へ戻る", groups_path %>
+        <%= link_to "チーム一覧へ戻る", groups_path %>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <div class="topPage">
   <%= link_to "リストを追加", new_group_list_path %>
   <div class="listWrapper">
-    <% @lists.each do |list| %>
+   <% @lists.each do |list| %>
       <div class="list">
         <div class="list_header">
           <h2 class="list_header_title"><%= list.title %></h2>
@@ -28,8 +28,7 @@
             <%= link_to "クエストを追加", new_group_list_quest_path(list.group,list), class: "addquest_link" %>
           </div>
         </div>
-
       </div>
-    <% end %>
+  <% end %>
   </div>
 </div>
