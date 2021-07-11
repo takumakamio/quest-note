@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
      User.create!(
-      	email: "aaaa@aaaa",
+      	email: "kudo@a",
       	name: "工藤新一",
       	introduction: "東の高校生探偵",
       	image_id: nil,
@@ -15,9 +15,27 @@
   )
 
      User.create!(
-      	email: "aaaa@aaaaa",
+      	email: "hattori@a",
       	name: "服部平次",
       	introduction: "西の高校生探偵",
+      	image_id: nil,
+      	password: 'aaaaaa',
+      	password_confirmation: 'aaaaaa'
+  )
+
+       User.create!(
+      	email: "haibara@a",
+      	name: "灰原哀",
+      	introduction: "組織の科学者",
+      	image_id: nil,
+      	password: 'aaaaaa',
+      	password_confirmation: 'aaaaaa'
+  )
+
+     User.create!(
+      	email: "ran@a",
+      	name: "毛利蘭",
+      	introduction: "名探偵の娘",
       	image_id: nil,
       	password: 'aaaaaa',
       	password_confirmation: 'aaaaaa'
@@ -63,8 +81,8 @@
         contractor_name: nil,
         rate: nil,
         is_paid: false,
-        start_date: "2021-07-10",
-        end_date: "2021-07-11",
+        start_date: "2022-07-10",
+        end_date: "2022-07-11",
         )
 
       Quest.create!(
@@ -78,8 +96,8 @@
         contractor_name: nil,
         rate: nil,
         is_paid: false,
-        start_date: "2021-07-10",
-        end_date: "2021-07-15",
+        start_date: "2022-07-10",
+        end_date: "2022-07-15",
         )
 
 

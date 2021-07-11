@@ -1,34 +1,39 @@
-<div class="topPage">
-  <%= link_to "リストを追加", new_group_list_path %>
-  <div class="listWrapper">
-   <% @lists.each do |list| %>
-      <div class="list">
-        <div class="list_header">
-          <h2 class="list_header_title"><%= list.title %></h2>
-          <div class="list_header_action">
-            <%= link_to(content_tag(:div, '', class: 'fas fa-pen'), edit_group_list_path(list.group, list)) %>
-            <%= link_to(content_tag(:i, '', class: 'fas fa-trash'), group_list_path(list.group.id,list.id), method: :delete) %>
-          </div>
-        </div>
-
-          <div class="questWrapper">
-          <% list.quests.each do |quest| %>
-
-            <div class="quest">
-             <%= link_to group_list_quest_path(quest.list.group,quest.list, quest), class:"questDetail_link" do %>
-              <h3 class="quest_title"><%= quest.quest_title %></h3>
-              <% if quest.quest_detail.size > 0 %>
-                <div class="quest_detail is-exist"><i class="fas fa-bars"></i></div>
-              <% end %>
+<!--bootstrap modalを呼び出すためにid指定して非同期化を実装-->
+<div id="list-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="quest-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <div class="topPage">
+    <%= link_to "リストを追加", new_group_list_path, remote:true %>
+    <div class="listWrapper">
+     <% @lists.each do |list| %>
+        <div class="list">
+          <div class="list_header">
+            <h2 class="list_header_title"><%= list.title %></h2>
+            <div class="list_header_action">
+              <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_group_list_path(list.group, list), remote: true) %>
+              <%= link_to(content_tag(:i, '', class: 'fas fa-trash'), group_list_path(list.group.id,list.id), method: :delete) %>
             </div>
-             <% end %>
-          <% end %>
-          <div class="addQuest">
-            <i class="far fa-plus-square"></i>
-            <%= link_to "クエストを追加", new_group_list_quest_path(list.group,list), class: "addquest_link" %>
+          </div>
+            <div class="questWrapper">
+              <!--報酬支払い済みのものは非表示にする処理-->
+              <!--.activeはscopeにてquestモデルに定義-->
+            <% list.quests.active.each do |quest| %>
+
+              <div class="quest">
+               <%= link_to group_list_quest_path(quest.list.group,quest.list, quest), class:"questDetail_link", remote: true do %>
+                <h3 class="quest_title"><%= quest.quest_title %></h3>
+                <% if quest.quest_detail.size > 0 %>
+                  <div class="quest_detail is-exist"><i class="fas fa-bars"></i></div>
+                <% end %>
+              </div>
+               <% end %>
+            <% end %>
+            <div class="addQuest">
+              <i class="far fa-plus-square"></i>
+              <%= link_to "クエストを追加", new_group_list_quest_path(list.group,list), class: "addquest_link" , remote: true %>
+            </div>
           </div>
         </div>
-      </div>
-  <% end %>
+    <% end %>
+
+    </div>
   </div>
-</div>

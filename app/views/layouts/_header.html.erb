@@ -4,6 +4,7 @@
       <a class="navbar-brand" href="/"><div>クエストノート </div><div class="logo-image"></div></a>
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+          <li><%= link_to ' トップ', root_path, class: 'fas fa-cat nav-link text-light' %></li>
           <li><%= link_to ' マイページ', edit_user_path(current_user.id), class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to ' チーム', groups_path, class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to ' レコード', records_path, class: 'fas fa-compact-disc nav-link text-light' %></li>

@@ -1,5 +1,5 @@
 <% my_groups.each do |my_group| %>
-  <%= link_to group_path(my_group), class: "text-reset text-decoration-none" do %>
+  <%= link_to group_lists_path(my_group), class: "text-reset text-decoration-none" do %>
     <div class="card ">
       <div class="container card-body">
         <div class="row">
@@ -11,6 +11,10 @@
           </div>
         </div>
         <div class="delete row">
+           <%= link_to group_path(my_group), class: "text-reset text-decoration-none" do %>
+           メンバー追加一覧へ<i class="fas fa-user-plus ml-1 mr-4"></i>
+           <% end %>
+
           <% if my_group.admin_user == current_user.id %>
             <%= link_to group_destroy_confirm_path(my_group), class: "inline-block" do %>
               削除する<i class="fas fa-trash-alt ml-1 mr-4"></i>

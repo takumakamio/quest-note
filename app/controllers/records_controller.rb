@@ -7,7 +7,10 @@ class RecordsController < ApplicationController
     @sum_prize_money = @quests.all.sum(:prize_money)
     # こなしたクエスト数
     @sum_quests = @quests.all.count(:contractor_id)
-    @sum_quests = @quests.all.count(:contractor_id)
-    
+
+    @sum_rate = @quests.all.sum(:rate)
+
+    @average_rate = @quests.average(:rate)
+
   end
 end

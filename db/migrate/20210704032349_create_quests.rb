@@ -10,7 +10,7 @@ class CreateQuests < ActiveRecord::Migration[5.2]
       t.boolean :is_paid, default: false
       t.integer :contractor_id
       t.string :contractor_name
-      t.integer :rate
+      t.float :rate, default: 0
       t.date :start_date
       t.date :end_date
       t.timestamps
