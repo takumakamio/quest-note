@@ -4,6 +4,12 @@ class Quest < ApplicationRecord
 
   validates :quest_title, presence: true
   validate :start_end_check
+  validates :rate, numericality: {
+  less_than_or_equal_to: 5,
+  greater_than_or_equal_to: 0
+  }
+
+  scope :active, -> { where(is_paid: false) }
 
   enum quest_status: { 未: 0, 進行中: 1, 完了: 2 }
   enum is_paid: { 未決済: false, 支払い済み: true}

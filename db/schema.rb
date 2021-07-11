@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_07_04_032349) do
     t.boolean "is_paid", default: false
     t.integer "contractor_id"
     t.string "contractor_name"
-    t.integer "rate"
+    t.float "rate", default: 0.0
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false

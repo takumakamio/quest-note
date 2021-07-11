@@ -1,5 +1,4 @@
 <% group_users.each do |group_user| %>
-<%= link_to group_lists_path(group_id: group_user.group.id), class: "text-reset text-decoration-none" do %>
 <div class="card my-1">
   <% if group_user.user == current_user %>
   <div class="card-body", style="background-color: #e6f5f8a3;" >
@@ -9,17 +8,16 @@
     <div class="row">
       <div class="user-image col-3">
         <%= attachment_image_tag group_user.user, :image, :fill, 60, 60, fallback: "no-image.png", class: "rounded-circle m-3"%>
-      <br><span class="quest-count">クエスト数 : <%= group_user.user.quests.count %></span>
+      <br><span class="quest-count">依頼クエスト数 : <%= group_user.user.quests.count %></span>
       </div>
       <div class="col-9 user-introduction">
         <div class="name">名前：<%= group_user.user.name %></div>
         <div class="introduction">
-          紹介文： 
+          紹介文：
           <%= group_user.user.introduction %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<% end %>
 <% end %>

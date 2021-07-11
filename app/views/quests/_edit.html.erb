@@ -1,0 +1,52 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="questeditPgae">
+      <div class='container'>
+
+        <%= form_with model: @quest, url: { action: :update }, html: { class: 'questeditForm' } do |f| %>
+          <% if @quest.errors.any? %>
+            <p class="text-danger">タイトルを入力してください</p>
+          <% end %>
+          <div class="questeditForm_quest_title">
+            <%= f.label :quest_title %>
+            <%= f.text_field :quest_title, class: "form-control", placeholder: "カード名" %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <%= f.label :quest_detail %>
+            <%= f.text_area :quest_detail, class: "form-control", placeholder: "詳細" %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <label>リスト名</label>
+            <%= select :quest, :list_id, @lists.map{ |list| [list.title, list.id] }, {}, { class: 'form-control' } %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <%= f.label :start_date, "開始日　" %>
+            <%= f.date_field :start_date, class: "form-control" %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <%= f.label :end_date, "終了日　" %>
+            <%= f.date_field :end_date, class: "form-control" %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <%= f.label :quest_status, "ステータス　" %>
+            <%= f.select :quest_status, Quest.quest_statuses.keys, class: "form-control" %>
+          </div>
+
+          <div class="questeditForm_quest_detail">
+            <%= f.label :prize_money, "賞金(円)" %>
+            <%= f.text_field :prize_money, class: "form-control", placeholder: "100" %>
+          </div>
+
+          <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+          <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "edit_btn" %>
+          <%= link_to 'クエスト詳細に戻る', group_list_quest_path(@quest.list.group,quest.list, quest), class:"questDetail_link", remote: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

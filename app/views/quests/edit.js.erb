@@ -1,0 +1,2 @@
+$("#quest-modal").html("<%= escape_javascript(render "edit", quest: @quest, lists: @lists) %>")
+$("#quest-modal").modal("show")
