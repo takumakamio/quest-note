@@ -22,7 +22,6 @@ class QuestsController < ApplicationController
     end
   end
 
-
   def edit
     @lists = List.where(group_id: params[:group_id])
   end
@@ -42,11 +41,11 @@ class QuestsController < ApplicationController
     redirect_to group_lists_path
   end
 
-   def payment
-        #is_paidをtrue(支払い済み)にする処理
+  def payment
+    #is_paidをtrue(支払い済み)にする処理
     @quest.update(is_paid: true)
     redirect_to group_lists_path
-   end
+  end
 
     private
     # Updateアクション時List idがうまく更新時に渡されないためマージ有り無しの別々にストロングパラメーターを定義
