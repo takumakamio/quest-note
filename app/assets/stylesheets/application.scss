@@ -12,33 +12,31 @@
  *
  *= require_tree .
  *= require_self
-  *= require fullcalendar
+ *= require fullcalendar
  */
 
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-
-body {
-  // min-height: 100vh;
+* {
+  margin:0;
+  padding:0;
 }
 
-// ヘッダー
-.header {
-  background-color:green;
-  width: 100%;
-  z-index: 999;
+.main {
+  padding-top:30px;
 }
 
+#header {
+  margin-bottom:-24px;
+}
 
 // フッター
-.footer {
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 10px;
-  background-color: #fff;
 }
 

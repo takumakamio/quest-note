@@ -1,7 +1,7 @@
 .topPage {
-  min-height: 100vh;
+  min-height: 89vh;
   padding-top: 30px;
-  background: #555;
+  background: #bababa;
   overflow-x: scroll;
   .listWrapper {
     display: flex;
@@ -25,26 +25,23 @@
           font-size: 20px;
           margin: 0;
         }
-        //iconの色変更
         &_action {
+          .fa-trash {
+            margin-right: 10px;
+          }
           .fa-pen, .fa-trash {
             font-size: 18px;
             color: #8c8c8c;
-          }
-          .fa-pen {
-            margin-right: 10px;
           }
         }
       }
       .questWrapper {
         overflow-y: scroll;
         max-height: 76vh;
-
-       .cardDetail_link {
-         text-decoration: none;
-         color: #323232;
+        .questDetail_link {
+          text-decoration: none;
+          color: #323232;
         }
-
         .quest {
           margin-bottom: 10px;
           padding: 10px;
@@ -72,7 +69,6 @@
     }
   }
 }
-
 
 .listeditPage {
   .listForm {

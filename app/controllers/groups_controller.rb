@@ -105,6 +105,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:group_name, :user)
   end
 
+# 　URL直打ち禁止
   def ensure_correct_user
     unless Group.find_by(id: params[:id]).nil?
       @group = Group.find(params[:id])
