@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :ensure_correct_user
+  before_action :ensure_correct_user
 
   def index
+    @user = current_user
   end
 
   def edit
@@ -23,16 +24,16 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :name, :introduction, :image)
   end
-  
+
   # URL直打ち禁止
-  # def ensure_correct_user
-  #   unless User.find_by(id: params[:id]).nil?
-  #     @user = User.find(params[:id])
-  #     unless @user == current_user
-  #     redirect_to users_path
-  #     end
-  #   else
-  #     redirect_to users_path
-  #   end
-  # end
+  def ensure_correct_user
+    unless User.find_by(id: params[:id]).nil?
+      @user = User.find(params[:id])
+      unless @user == current_user
+      redirect_to edit_user_path(current_user.id)
+      end
+    else
+      redirect_to edit_user_path(current_user.id)
+    end
+  end
 end
