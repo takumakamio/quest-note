@@ -1,11 +1,10 @@
-<div class='mypage'>
-  <h2>My Page</h2>
+<div class='userWrapper'>
   <%= render 'layouts/error_messages', resource: @user %>
   <%= form_with model: @user, url: user_path(@user), method: :patch, local:true do |f| %>
   <div class="profile-body">
-    <div class="profile-detail">
       <div class="profile-icon">
   	    <label>
+  	      <div><%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.png" ,size: "200x200" %></div>
   	      <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
   	    </label>
   	  </div>
@@ -13,7 +12,6 @@
       <div class='profile-basis'>
         <div class="form-group">
           <p>名前</p>
-          <div><%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no-image.png") %></div>
           <%= f.text_field :name, :placeholder =>"#{@user.name}", class:"form-control" %>
         </div>
 
@@ -26,16 +24,12 @@
           <p>introduction</p>
           <%= f.text_area :introduction, :placeholder =>"#{@user.introduction}", class:"form-control"  %>
         </div>
-
         <div>所属グループ数 : <%= @user.group_users.count %></div>
       </div>
-    </div>
 
     <div class="profile-btn">
-      <div class="btn">
         <%= hidden_field_tag :user_id, params[:user_id] %>
         <%= f.submit "保存",  class:"btn btn-secondary" %>
-      </div>
     </div>
     <% end %>
   </div>

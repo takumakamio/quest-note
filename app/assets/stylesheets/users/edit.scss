@@ -1,23 +1,14 @@
-.mypage {
+.userWrapper {
+  width: 100%;
   background-color: white;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-
-  h2 {
-
-  }
   .profile-body {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-
-    .profile-detail {
-
-
       .profile-icon {
-        width: 30%;
-        margin-right: 3%;
         img {
           width: 12vw;
           height: 12vw;
@@ -28,49 +19,14 @@
           transition-duration: 0.3s;
         }
       }
-
       .profile-basis {
-        width: 65%;
+        width: 50%;
         color: #545454;
-      }
     }
     .profile-btn {
       width: 100%;
       display: flex;
       justify-content: flex-end;
-    }
-  }
-  .mypage-link {
-    text-align: right;
-    margin-top: 5%;
-    .my-group-link {
-      margin-right: 5%;
-      display: inline-block;
-      a {
-        color: #545454;
-      }
-    }
-    .my-task-link {
-      display: inline-block;
-      a {
-        color: #545454;
-      }
-    }
-  }
-}
-
-#user_profile_image {
-  display: none;
-}
-.profile-edit {
-  div {
-    margin: 5% 0;
-    p {
-      margin: 0;
-    }
-    input {
-      width: 70%;
-      margin: 0;
     }
   }
 }

@@ -21,7 +21,7 @@
 //= require_tree .
 
 //ヘッダーの高さ分だけコンテンツを下げる
-$(function() {
-  let height = $("#header").height();
-  $("main").css("padding-top", height);
-});
+// $(function() {
+//   let height = $("#header").height();
+//   $("main").css("padding-top", height);
+// });

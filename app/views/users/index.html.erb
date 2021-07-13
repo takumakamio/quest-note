@@ -1,2 +1,17 @@
+<div class='mypage'>
+  <h2>マイページ</h2>
+  <div class="profile-body">
+    <div class="profile-detail">
+      <div class='profile-basis'>
+        <div class="form-group">
+          <p>名前</p>
+          <div><%= @user.name %></div>
+          <div><%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.png" ,size: "100x100" %></div>
+        </div>
+        <div class="form-group">
+          <p>introduction</p>
 
-  <h2>My Page</h2>
+        </div>
+        <div>所属グループ数 : <%= @user.group_users.count %></div>
+      </div>
+  </div>
