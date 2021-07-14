@@ -65,6 +65,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    ast (2.4.2)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     aws-eventstream (1.1.1)
@@ -122,10 +123,6 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.7.6)
-    dotenv-rails (2.7.6)
-      dotenv (= 2.7.6)
-      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.3)
@@ -175,13 +172,15 @@ GEM
     msgpack (1.4.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    parallel (1.20.1)
+    parser (3.0.2.0)
+      ast (~> 2.4.1)
     popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -220,6 +219,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.3)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -236,6 +236,19 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.5)
+    rubocop (1.18.3)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.7.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.7.0)
+      parser (>= 3.0.1.1)
+    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
@@ -282,6 +295,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    unicode-display_width (2.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (3.7.0)
@@ -306,14 +320,12 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dotenv-rails
   font-awesome-sass (~> 5.13)
   fullcalendar-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   momentjs-rails
-  mysql2
   puma (~> 3.11)
   rails (~> 5.2.5)
   rails-i18n
@@ -321,6 +333,7 @@ DEPENDENCIES
   refile!
   refile-mini_magick
   refile-s3!
+  rubocop
   sass-rails (~> 6)
   selenium-webdriver
   spring

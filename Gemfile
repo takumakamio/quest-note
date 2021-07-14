@@ -10,7 +10,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 6"
+gem 'sass-rails', '~> 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -38,13 +38,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -59,7 +59,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
 
@@ -69,12 +69,16 @@ gem 'fullcalendar-rails'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'rails-i18n'
+gem 'rails-ujs'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'refile-s3', github: 'refile/refile-s3', ref: '768d60d4e5e5e6a00a874767018ff8e31b1da3cd'
-gem 'rails-ujs'
 
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
+group :development do
+  gem 'rubocop', require: false
 end
+
+# gem 'dotenv-rails'
+# group :production do
+#   gem 'mysql2'
+# end

@@ -1,28 +1,27 @@
-.userWrapper {
-  width: 100%;
-  background-color: white;
+.userEdit {
   padding-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  .profile-body {
-    width: 100%;
-      .profile-icon {
-        img {
-          width: 12vw;
-          height: 12vw;
-          object-fit: cover;
+    .title {
+    margin: 0;
+    text-align: center;
+  }
+   .edit-profile {
+    .form-group {
+      max-width: 300px;
+      margin: 0 auto 1rem;
+        .form-control {
+          background: #f6f8fa;
         }
-        img:hover {
+        .img {
+          object-fit: cover;
+          margin: 0 auto 10px;
+          border-radius: 70%;
+          border-color: green;
+        }
+        .img:hover {
           opacity: 0.6;
           transition-duration: 0.3s;
         }
-      }
-      .profile-basis {
-        width: 50%;
-        color: #545454;
-    }
+     }
     .profile-btn {
       width: 100%;
       display: flex;

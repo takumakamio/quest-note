@@ -13,5 +13,4 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   attachment :image
-
 end
