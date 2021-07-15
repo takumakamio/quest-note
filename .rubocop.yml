@@ -14,10 +14,13 @@ Metrics/MethodLength:
 Style/AsciiComments:
   Exclude:
     - 'Gemfile'
+    - 'app/controllers/calendars_controller.rb'
+    - 'app/controllers/lists_controller.rb'
+    - 'app/controllers/quests_controller.rb'
+    - 'app/controllers/records_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/groups_controller.rb'
-    - 'app/controllers/tasks_controller.rb'
-    - 'app/controllers/notifications_controller.rb'
-    - 'app/models/task.rb'
+    - 'app/models/quest.rb'
     - 'config/puma.rb'
 
 Style/CaseLikeIf:

@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: %i[edit update destroy]
+  # before_action :ensure_correct_user,except: %i[show]
 
   def index
     @lists = List.where(group_id: params[:group_id]).order('created_at ASC')
@@ -45,4 +46,19 @@ class ListsController < ApplicationController
   def set_list
     @list = List.find_by(id: params[:id])
   end
+
+  # 　URL直打ち禁止
+  def ensure_correct_user
+    if List.find_by(group_id: params[:group_id]).nil?
+      redirect_to groups_path
+    else
+      @list = List.find_by(group_id: params[:group_id])
+      @group_user = GroupUser.where(group_id: @list.group.id)
+      redirect_to groups_path unless @group_user.where(user_id: current_user).present?
+    end
+  end
 end
+
+
+
+

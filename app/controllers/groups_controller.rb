@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user,
-                only: %i[show update destroy confirm destroy_confirm withdrawal_confirm withdrawal]
+  before_action :ensure_correct_user,only: %i[show update destroy confirm destroy_confirm withdrawal_confirm withdrawal]
 
   def index
     @my_groups = current_user.groups
@@ -106,7 +105,7 @@ class GroupsController < ApplicationController
 
   # 　URL直打ち禁止
   def ensure_correct_user
-    if Group.find_by(id: params[:id]).nil?
+    if Group.find(params[:id]).nil?
       redirect_to groups_path
     else
       @group = Group.find(params[:id])
@@ -115,3 +114,5 @@ class GroupsController < ApplicationController
     end
   end
 end
+
+

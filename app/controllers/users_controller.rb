@@ -27,11 +27,9 @@ class UsersController < ApplicationController
 
   # URL直打ち禁止
   def ensure_correct_user
-    if User.find_by(id: params[:id]).nil?
-      redirect_to edit_user_path(current_user.id)
-    else
-      @user = User.find(params[:id])
-      redirect_to edit_user_path(current_user.id) unless @user == current_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to edit_user_path(current_user)
     end
   end
 end

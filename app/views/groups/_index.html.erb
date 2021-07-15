@@ -1,24 +1,17 @@
 <% my_groups.each do |my_group| %>
   <%= link_to group_lists_path(my_group), class: "text-reset text-decoration-none" do %>
     <div class="card ">
-      <div class="container card-body">
-        <div class="row">
-          <div class="col-5">
-            <div class="group-name">" <%= my_group.group_name %> "</div>
+      <div class="card-body">
+            <div class="group-name"><%= my_group.group_name %> </div>
             <div class="member-count">メンバー数 : <%= my_group.users.count %></div>
-          </div>
-          <div class="col-7 user-introduction">
-          </div>
-        </div>
-        <div class="delete row">
-           <%= link_to group_path(my_group), class: "text-reset text-decoration-none" do %>
-           メンバー追加一覧へ<i class="fas fa-user-plus ml-1 mr-4"></i>
+            
+        <div class="group-delete">
+           <%= link_to group_path(my_group) do %>
+           メンバー追加一覧へ　　
            <% end %>
 
           <% if my_group.admin_user == current_user.id %>
-            <%= link_to group_destroy_confirm_path(my_group), class: "inline-block" do %>
-              削除する<i class="fas fa-trash-alt ml-1 mr-4"></i>
-            <% end %>
+            <%= link_to "チームを削除する", group_path(my_group), method: :delete, data: {confirm: "本当に削除しますか？"} %>
           <% end %>
         </div>
       </div>

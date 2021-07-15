@@ -1,38 +1,51 @@
 <!--bootstrap modalを呼び出すためにid指定して非同期化を実装-->
-<div id="group-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-  <div class="group-show container">
-    <div class="row">
-      <div class="col">
-        <%= link_to group_lists_path(@group), class: "text-reset text-decoration-none" do %>
-        <h4 class="group-name"><%= @group.group_name %></h4>
-        <% end %>
-
-        <div>
-          <h5>Member (<%= @group_users.count %>) </h5>
-          <div class="group-member">
-            <%= render "users/index", group_users: @group_users %>
+<div class="container">
+ <div id="group-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+ 
+    <%= link_to group_lists_path(@group) do %>
+     <h3 class="headline"><%= @group.group_name %></h3>
+    <% end %>
+     <h5 class="subline">Member (<%= @group_users.count %>) </h5>
+     
+   <div class="groupShow">
+      <% @group_users.each do |group_user| %>
+      <div class="card">
+        <div class="card-body">
+            <div class="user-image">
+              <%= attachment_image_tag group_user.user, :image, :fill, 150, 150, fallback: "no-image.png" ,size: "150x150"%>
+            </div>
+            <br><span>総依頼クエスト数 : <%= group_user.user.quests.count %></span>
+            <div class="user-introduction">
+              <div class="name">名前：<%= group_user.user.name %></div>
+              <div class="introduction">
+                紹介文：<%= group_user.user.introduction %>
+              </div>
             </div>
         </div>
-
-        <div class="member-new">
-          <h5>メンバーを追加する</h5>
-
-          <%= form_with url: {controller: "groups", action: "confirm" } do |f| %>
-          <p>追加したいメンバーのメールアドレスを入力してください</p>
-          <span>email　</span><%= f.email_field :email %>
-          <%= f.submit "メンバーを追加する", class:"my-3  mx-5 btn btn-secondary btn-sm" %>
-          <% end %>
-        </div>
-
-        <div class="withdrawal">
-          <h6>退会</h6>
-          <p>※ <%= @group.group_name %>から退会すると<%= @group.group_name %>のクエストを閲覧できなくなります。</p>
-          <%= link_to "#{@group.group_name}を退会する", group_withdrawal_confirm_path(@group), remote:true %>
-        </div>
-
-        <div class="back-group-index">
-          <%= link_to "チーム一覧へ戻る", groups_path %>
-        </div>
       </div>
+      <% end %>
+   </div>
+   <div class= "bottom-container">
+       
+    <div class="memberNew">
+      <h5>メンバーを追加する</h5>
+      <%= form_with url: {controller: "groups", action: "confirm" } do |f| %>
+      <p>追加したいメンバーのメールアドレスを入力してください</p>
+      <span>email　</span><%= f.email_field :email %>
+      <%= f.submit "追加", class:"mx-3 btn btn-secondary btn-sm" %>
+      <% end %>
     </div>
+
+    <div class="withdrawal">
+      <h6>退会</h6>
+      <p>※ <%= @group.group_name %>から退会すると<%= @group.group_name %>のクエストを閲覧できなくなります。</p>
+      <%= link_to "#{@group.group_name}を退会する", group_withdrawal_confirm_path(@group), remote:true %>
+    </div>
+    
+    <div class="back-group-index">
+      <%= link_to "チーム一覧へ戻る", groups_path %>
+    </div>
+    
   </div>
+  
+</div>

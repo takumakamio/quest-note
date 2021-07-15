@@ -1,18 +1,24 @@
 .topPage {
   min-height: 89vh;
   padding-top: 30px;
-  background: #bababa;
   overflow-x: scroll;
+  .addList {
+    color: #8c8c8c;
+    margin: 10px 20px 10px;
+    &_link {
+      color: #8c8c8c;
+    }
+  }
   .listWrapper {
     display: flex;
     height: 100%;
     align-items: baseline;
     .list {
       position: relative;
-      background: #e2e4e6;
+      background: white;
       padding: 10px;
       margin-left: 20px;
-      min-width: 250px;
+      min-width: 300px;
       &:last-child {
         margin-right: 20px;
       }
@@ -69,10 +75,21 @@
     }
   }
 }
+//新規リスト作成
+.listnewPage {
+  .new_list {
+    max-width: 500px;
+    margin: 100px auto;
+    .error_title {
+      color: #e40909;
+    }
+  }
+}
 
+//リスト編集
 .listeditPage {
   .listForm {
     max-width: 500px;
-    margin: 100px auto 0;
+    margin: 100px auto;
   }
 }
