@@ -1,12 +1,11 @@
 class GroupsController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:show, :update, :destroy, :confirm, :destroy_confirm, :withdrawal_confirm, :withdrawal]
+  before_action :ensure_correct_user,only: %i[show update destroy confirm destroy_confirm withdrawal_confirm withdrawal]
 
   def index
     @my_groups = current_user.groups
     @group = Group.new
-    #<< current userをグループにプッシュ
+    # << current userをグループにプッシュ
     @group.users << current_user
   end
 
@@ -36,8 +35,8 @@ class GroupsController < ApplicationController
     if params[:email].present?
       @user = User.find_by(email: params[:email])
       # 入力されたEmailのuserは存在するか
+      @group = Group.find(params[:id])
       if @user.present?
-        @group = Group.find(params[:id])
         @group_user = GroupUser.where(user_id: @user.id).where(group_id: @group.id)
 
         # 入力されたEmailのuserがすでに存在しないか
@@ -48,7 +47,6 @@ class GroupsController < ApplicationController
           render 'show'
         end
       else
-        @group = Group.find(params[:id])
         @group_users = @group.group_users
         flash.now[:warning] = "メールアドレス: #{params[:email]} のメンバーは見つかりません。"
         render 'show'
@@ -105,16 +103,16 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:group_name, :user)
   end
 
-# 　URL直打ち禁止
+  # 　URL直打ち禁止
   def ensure_correct_user
-    unless Group.find_by(id: params[:id]).nil?
+    if Group.find(params[:id]).nil?
+      redirect_to groups_path
+    else
       @group = Group.find(params[:id])
       @group_user = GroupUser.where(group_id: @group.id)
-      unless @group_user.where(user_id: current_user).present?
-        redirect_to groups_path
-      end
-    else
-      redirect_to groups_path
+      redirect_to groups_path unless @group_user.where(user_id: current_user).present?
     end
   end
 end
+
+

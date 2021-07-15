@@ -5,7 +5,7 @@ class CreateQuests < ActiveRecord::Migration[5.2]
       t.references :list, foreign_key: true
       t.string :quest_title, null: false
       t.text :quest_detail
-      t.integer :quest_status, default: "未"
+      t.integer :quest_status, default: '未'
       t.integer :prize_money
       t.boolean :is_paid, default: false
       t.integer :contractor_id

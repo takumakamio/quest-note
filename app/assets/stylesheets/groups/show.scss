@@ -1,0 +1,186 @@
+// グループ詳細
+// メンバー一覧
+.headline{
+  background: green;
+  color: white;
+  border-radius: 5%;
+  margin: 70px 40px 20px;
+  padding: 5px;
+}
+.subline {
+  font-size: 150%;
+  margin-left: 50px;
+}
+
+.groupShow {
+  width: 100%;
+  height: 100%;
+  color: #545454;
+  padding-top: 30px;
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+  .card {
+    width: 240px;
+    height: 240px;
+    color: #545454;
+    font-size: 15px;
+    margin: 5px;
+    
+    .cardbody {
+     align-items: center;
+     justify-content: center;
+    }
+
+    .user-image {
+      img {
+        max-width: 100px;
+        max-height: 100px;
+        object-fit: cover;
+      }
+    }
+    .user-introduction {
+      .name {
+        width: 100%;
+      }
+      .introduction {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// メンバーを追加する
+.bottom-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .memberNew {
+    width: 80%;
+    margin: 20px 0;
+    padding: 3% 5%;
+    background-color: #fff;
+    border-radius : 5px;
+    color: #545454;
+    
+    h5 {
+      display: flex;
+      justify-content: center;
+      color: white;
+      background: blue;
+      border-radius: 5%;
+      width: 200px;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .back-group-index {
+    a {
+      color: #545454;
+    }
+  }
+  
+  // 退会
+  .withdrawal {
+    border: solid 1px silver;
+    margin: 0 0 20px;
+    padding : 2%;
+    width: 80%;
+    h6 {
+      font-color: #545454;
+      font-weight: bold;
+    }
+    p {
+      font-size: 0.9rem;
+          margin-bottom: 0.1rem;
+    }
+    a {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+
+// コンファームページ
+.confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3%;
+  p {
+    margin: 3% 0 5% 0;
+  }
+  .user-introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .member-add {
+    display: flex;
+    justify-content: flex-end;
+    margin: 4%;
+  }
+}
+
+//メンバー追加
+.confirm {
+  display: flex;
+  flex-direction:column;
+  
+  .confirm-headline {
+  display: flex;
+  justify-content: center;
+  color: black;
+  width: 500px;
+  margin: 20px 40px 20px;
+  font-size: 20px;
+  }
+  .card {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #545454;
+    font-size: 14px;
+    margin: 15%;
+    .user-image {
+      img {
+        max-width: 70px;
+        max-height: 70px;
+        object-fit: cover;
+      }
+    }
+    .user-introduction {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .name {
+        width: 100%;
+      }
+      .introduction {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.btn-style-delete {
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 2px;
+  background: #CA807E;
+  transition: .3s;
+  &:hover {
+    background: #975A59;
+    text-decoration: none;
+    color: white;
+  }
+}

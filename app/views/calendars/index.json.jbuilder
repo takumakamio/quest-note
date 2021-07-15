@@ -11,6 +11,6 @@ json.array!(@contractor_quests) do |quest|
   json.title quest.quest_title
   json.start quest.start_date
   json.end quest.end_date
-  json.color "#ff0000"
+  json.color '#ff0000'
   json.url group_list_quest_url(quest.list.group, quest.list, quest)
 end

@@ -1,15 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="offset-1 col-10">
-      <div class="group-index">
-        <% unless @my_groups.present? %>
-          <p class="mt-5">現在登録されているチームはありません</p>
-        <% else %>
-          <h4>マイチーム</h4>
-          <%= render "index", my_groups: @my_groups %>
-        <% end %>
-      </div>
-        <%= render "new", group: @group %>
-    </div>
+  <h3 class ="headline">マイチーム</h3>
+  <div class="groupIndex">
+    <% unless @my_groups.present? %>
+      <p class="mt-5">現在登録されているチームはありません</p>
+    <% else %>
+      <%= render "index", my_groups: @my_groups %>
+    <% end %>
   </div>
+    <%= render "new", group: @group %>
 </div>

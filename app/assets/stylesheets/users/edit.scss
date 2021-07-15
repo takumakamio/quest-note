@@ -1,28 +1,35 @@
-.userWrapper {
-  width: 100%;
-  background-color: white;
+.userEdit {
   padding-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  .profile-body {
-    width: 100%;
-      .profile-icon {
+    .title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+   .edit-profile {
+    .profile-img {
+      margin: 10px auto;
+      text-align: center;
+      img {
+      border-radius: 10%;
+      }
+    }
+    .form-group {
+      max-width: 300px;
+      margin: 10px auto 30px;
+        .form-control {
+          background: #f6f8fa;
+        }
         img {
-          width: 12vw;
-          height: 12vw;
           object-fit: cover;
+          margin: 0 auto 10px;
+          border-radius: 70%;
+          border-color: green;
+          max-width: 300px;
         }
         img:hover {
           opacity: 0.6;
           transition-duration: 0.3s;
         }
-      }
-      .profile-basis {
-        width: 50%;
-        color: #545454;
-    }
+     }
     .profile-btn {
       width: 100%;
       display: flex;

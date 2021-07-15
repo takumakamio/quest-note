@@ -8,5 +8,4 @@ class Group < ApplicationRecord
     @group_user = GroupUser.new(group: self, user: user)
     @group_user.save if @group_user.group.group_name.present?
   end
-
 end

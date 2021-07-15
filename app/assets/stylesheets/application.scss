@@ -24,8 +24,12 @@
   padding:0;
 }
 
-.main {
+main {
   padding-top:30px;
+}
+
+body {
+  background-color: rgb(241, 236, 234);
 }
 
 #header {
@@ -39,4 +43,5 @@ footer {
   align-items: center;
   width: 100%;
 }
+
 

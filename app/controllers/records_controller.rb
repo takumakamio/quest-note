@@ -2,7 +2,7 @@ class RecordsController < ApplicationController
   def index
     @user = current_user
     # contractor_idが存在しているクエストを@questsに格納
-    @quests = Quest.where(contractor_id: current_user.id).order("created_at ASC")
+    @quests = Quest.where(contractor_id: current_user.id).order('created_at ASC')
     # 賞金合計
     @sum_prize_money = @quests.all.sum(:prize_money)
     # こなしたクエスト数
@@ -11,6 +11,5 @@ class RecordsController < ApplicationController
     @sum_rate = @quests.all.sum(:rate)
 
     @average_rate = @quests.average(:rate)
-
   end
 end

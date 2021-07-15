@@ -3,8 +3,8 @@
   .questnewForm {
     max-width: 500px;
     margin: 70px auto;
-    &_title {
-      margin-bottom: 30px;
+    &_quest_title, &_quest_detail  {
+      margin: 30px;
     }
   }
 }

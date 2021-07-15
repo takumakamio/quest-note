@@ -2,7 +2,6 @@
   <div class="modal-content">
     <div class="questeditPgae">
       <div class='container'>
-
         <%= form_with model: @quest, url: { action: :update }, html: { class: 'questeditForm' } do |f| %>
           <% if @quest.errors.any? %>
             <p class="text-danger">タイトルを入力してください</p>
