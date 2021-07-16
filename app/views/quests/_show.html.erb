@@ -71,7 +71,7 @@
            <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
            <%= f.hidden_field :contractor_id, value: @user.id %>
            <%= f.hidden_field :contractor_name, value: @user.name %>
-          <div class="text-center"><%= f.submit "仕事を引き受ける" %></div>
+          <div class="text-center"><%= f.submit "仕事を引き受ける" ,class: "submitBtn" %></div>
           <% end %>
           <% end %>
           <!--契約解除のためのボタン-->
@@ -83,14 +83,15 @@
              <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
              <%= f.hidden_field :contractor_id, value: nil %>
              <%= f.hidden_field :contractor_name, value: nil %>
-               <div class="text-center"><%= f.submit "仕事をキャンセルする" %></div>
+               <div class="text-center"><%= f.submit "仕事をキャンセルする" ,class: "btn-square-red" %></div>
             <% end %>
            <% end %>
           <% end %>
-            <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "edit_btn" %>
+            <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "c-button" %>
             <% if @quest.user.id == current_user.id %>
-            <%= link_to '編集する', edit_group_list_quest_path(@quest.list.group,@quest.list, @quest), class: "edit_btn", remote: true %>
-            <%= link_to '削除をする', group_list_quest_path(@quest.list.group), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
+            <%= link_to '編集する', edit_group_list_quest_path(@quest.list.group,@quest.list, @quest), class: "btn-stitch-blue", remote: true %>
+            <%= link_to '削除をする', group_list_quest_path(@quest.list.group), class: "btn-stitch-red", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
+            <%= link_to 'カレンダー', calendars_path, class: "edit_btn"%>
             <% end %>
 
 

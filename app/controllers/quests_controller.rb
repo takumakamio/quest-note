@@ -50,14 +50,13 @@ class QuestsController < ApplicationController
 
   # Updateアクション時List idがうまく更新時に渡されないためマージ有り無しの別々にストロングパラメーターを定義
   def new_quest_params
-    params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money).merge(
-      user: current_user, list_id: params[:list_id]
-    )
+    params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date, :end_date, :prize_money)
+    .merge(user: current_user, list_id: params[:list_id])
   end
 
   def edit_quest_params
     params.require(:quest).permit(:quest_title, :quest_detail, :list_id, :user_id, :quest_status, :start_date,
-                                  :end_date, :prize_money, :contractor_id, :contractor_name, :is_paid, :rate)
+    :end_date, :prize_money, :contractor_id, :contractor_name, :is_paid, :rate)
   end
 
   def set_quest

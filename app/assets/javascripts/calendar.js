@@ -45,7 +45,9 @@ $(function () {
                 // event クリックで編集、削除
                 eventClick : function(event, jsEvent , view) {
                   jsEvent.preventDefault();
-                  $(`#quest`).modal('show');
+                //   JSモーダル読み込み時にリモートにしてあげる
+                  $(".fc-event").attr("data-remote", "true");
+                  $(`#quest-modal`).modal('show');
                 },
 
                 // Drag & Drop & Resize

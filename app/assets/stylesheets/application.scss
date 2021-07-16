@@ -19,21 +19,23 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-* {
-  margin:0;
-  padding:0;
-}
+// * {
+//   margin:0;
+//   padding:0;
+// }
 
 main {
-  padding-top:30px;
 }
 
 body {
-  background-color: rgb(241, 236, 234);
+background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+min-height: 100vh;
 }
 
-#header {
-  margin-bottom:-24px;
+.header {
+background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 
 // フッター
@@ -44,4 +46,32 @@ footer {
   width: 100%;
 }
 
+.btn-stitch-blue {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+  border: dashed 1px #FFF;
+}
 
+.btn-stitch-blue:hover {
+  border: dotted 1px #FFF;
+}
+
+.btn-stitch-red {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+  border: dashed 1px #FFF;
+}
+
+.btn-stitch-red:hover {
+  border: dotted 1px #FFF;
+}

@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: %i[edit update destroy]
-  # before_action :ensure_correct_user,except: %i[show]
+  before_action :ensure_correct_user,except: %i[show]
 
   def index
     @lists = List.where(group_id: params[:group_id]).order('created_at ASC')
@@ -49,14 +49,10 @@ class ListsController < ApplicationController
 
   # 　URL直打ち禁止
   def ensure_correct_user
-    if List.find_by(group_id: params[:group_id]).nil?
-      redirect_to groups_path
-    else
-      @list = List.find_by(group_id: params[:group_id])
-      @group_user = GroupUser.where(group_id: @list.group.id)
-      redirect_to groups_path unless @group_user.where(user_id: current_user).present?
-    end
+    return redirect_to groups_path, notice: 'そのリストは自分の管理下ではありません。' unless current_user.group_users.pluck(:group_id)
+    .include?(params[:group_id].to_i)
   end
+  
 end
 
 
