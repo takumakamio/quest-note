@@ -1,5 +1,6 @@
 //new
 .questnewPgae {
+   background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
   .questnewForm {
     max-width: 500px;
     margin: 70px auto;
@@ -11,6 +12,7 @@
 
 //Show
 .questdetailPage {
+   background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
   .questContents {
     margin: 60px auto 0;
     max-width: 600px;
@@ -18,6 +20,7 @@
       h2 {
         font-size: 22px;
       }
+      
     }
     &_quest_title, &_quest_detail, &_listStatus {
       border-bottom: 1px solid #ccc;
@@ -52,6 +55,7 @@
 }
 // edit
 .questeditPgae {
+  background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
   .questeditForm {
     max-width: 500px;
     margin: 70px auto 0;

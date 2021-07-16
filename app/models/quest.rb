@@ -2,7 +2,7 @@ class Quest < ApplicationRecord
   belongs_to :user
   belongs_to :list
 
-  validates :quest_title, presence: true
+  validates :quest_title, presence:{ message: 'は１文字以上入力してください。' }
   validate :start_end_check
   validates :rate, numericality: {
     less_than_or_equal_to: 5,
@@ -11,7 +11,7 @@ class Quest < ApplicationRecord
 
   scope :active, -> { where(is_paid: false) }
 
-  enum quest_status: { 未: 0, 進行中: 1, 完了: 2 }
+  enum quest_status: { 未契約: 0, 進行中: 1, 完了: 2 }
   enum is_paid: { 未決済: false, 支払い済み: true }
 
   # 開始日より終了日が早い日付ならエラーメッセージを返す

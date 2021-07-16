@@ -1,6 +1,4 @@
 .topPage {
-  min-height: 89vh;
-  padding-top: 30px;
   overflow-x: scroll;
   .addList {
     color: #8c8c8c;
@@ -28,6 +26,9 @@
         align-items: center;
         justify-content: space-between;
         &_title {
+          border-bottom:solid;
+          border-color:#FF0000;
+          border-width:5px;
           font-size: 20px;
           margin: 0;
         }
@@ -52,7 +53,11 @@
           margin-bottom: 10px;
           padding: 10px;
           &_title {
-            font-size: 17px;
+            font-size: 19px;
+            padding-bottom: 5px;
+          }
+          &_subtitle {
+            font-size: 12px;
           }
           &_detail {
             display: none;
@@ -75,8 +80,11 @@
     }
   }
 }
+
 //新規リスト作成
 .listnewPage {
+  background: rgb(236,239,242);
+　background: linear-gradient(234deg, rgba(236,239,242,1) 0%, rgba(249,240,225,1) 100%);
   .new_list {
     max-width: 500px;
     margin: 100px auto;
@@ -88,6 +96,8 @@
 
 //リスト編集
 .listeditPage {
+  background: rgb(236,239,242);
+　background: linear-gradient(234deg, rgba(236,239,242,1) 0%, rgba(249,240,225,1) 100%);
   .listForm {
     max-width: 500px;
     margin: 100px auto;
