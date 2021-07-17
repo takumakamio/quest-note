@@ -1,3 +1,84 @@
+.groupIndex {
+  color: #545454;
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .card {
+    width: 45%;
+    height: 45%;
+    margin: 10px;
+    .card-body {
+      padding: 10px;
+      .group-name {
+        margin: 1%;
+        font-size: 1.1rem;
+      }
+      .member-count {
+        margin: 1%;
+        padding-top: 2%;
+        font-size: 0.9rem;
+      }
+      .group-delete {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 0.9rem;
+        a {
+          text-decoration: none;
+          color: #545454;
+          margin: 1% 0;
+        }
+        a:hover {
+          cursor: grab;
+          background-color: rgba(0,0,0,0.2);
+          transition-duration: 0.3s;
+        }
+      }
+    }
+  }
+  .card:hover {
+    background-color: rgba(0,0,0,0.1);
+    transition-duration: 0.3s;
+  }
+}
+
+.headline{
+  display: flex;
+  justify-content: center;
+  background: green;
+  color: white;
+  width: 150px;
+  border-radius: 5%;
+  margin: 20px 40px 20px;
+  padding: 5px;
+}
+
+
+.groupNew {
+  width: 90%;
+  background-color: white;
+  color: #555;
+  padding: 20px 50px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  border-radius: 1%;
+  
+  h5 {
+    display: flex;
+    justify-content: center;
+    background: blue;
+    color: white;
+    border-radius: 5%;
+    width: 150px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+}
+
 // グループ詳細
 // メンバー一覧
 .headline{

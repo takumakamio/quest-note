@@ -15,7 +15,6 @@
             <h2 class="list_header_title"><%= list.title %></h2>
             <div class="list_header_action">
               <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_group_list_path(list.group, list), remote: true) %>
-              <%= link_to(content_tag(:i, '', class: 'fas fa-trash'), group_list_path(list.group.id,list.id), method: :delete) %>
             </div>
           </div>
           

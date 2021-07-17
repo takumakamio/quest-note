@@ -1,0 +1,113 @@
+//new
+.questnewPgae {
+   background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  .questnewForm {
+    max-width: 500px;
+    margin: 70px auto;
+    &_quest_title, &_quest_detail  {
+      margin: 30px;
+    }
+  }
+}
+
+//Show
+.questdetailPage {
+   background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  .questContents {
+    margin: 60px auto 0;
+    max-width: 600px;
+    &_title {
+      h2 {
+        font-size: 22px;
+      }
+      
+    }
+    &_quest_title, &_quest_detail, &_listStatus {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+  }
+}
+// edit
+.questeditPgae {
+  background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  .questeditForm {
+    max-width: 500px;
+    margin: 70px auto 0;
+    &_quest_title, &_quest_detail {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.btn-set {
+  margin: 0 0 50px 80px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .btn-stitch-blue {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px #668ad8;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-blue:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-red {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: red;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px red;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-red:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-green {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: green;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px green;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-green:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-grey {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: grey;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px grey;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-grey:hover {
+    border: dotted 1px #FFF;
+  }
+}

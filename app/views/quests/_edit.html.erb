@@ -7,12 +7,12 @@
             <p class="text-danger">タイトルを入力してください</p>
           <% end %>
           <div class="questeditForm_quest_title">
-            <%= f.label :quest_title %>
-            <%= f.text_field :quest_title, class: "form-control", placeholder: "カード名" %>
+            <%= f.label :quest_title, "タイトル　" %>
+            <%= f.text_field :quest_title, class: "form-control", placeholder: "クエスト名" %>
           </div>
 
           <div class="questeditForm_quest_detail">
-            <%= f.label :quest_detail %>
+            <%= f.label :quest_detail, "詳細　" %>
             <%= f.text_area :quest_detail, class: "form-control", placeholder: "詳細" %>
           </div>
 
@@ -32,19 +32,36 @@
           </div>
 
           <div class="questeditForm_quest_detail">
-            <%= f.label :quest_status, "ステータス　" %>
-            <%= f.select :quest_status, Quest.quest_statuses.keys, class: "form-control" %>
-          </div>
-
-          <div class="questeditForm_quest_detail">
             <%= f.label :prize_money, "賞金(円)" %>
             <%= f.text_field :prize_money, class: "form-control", placeholder: "100" %>
           </div>
-
-          <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
-          <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "edit_btn" %>
-          <%= link_to 'クエスト詳細に戻る', group_list_quest_path(@quest.list.group,quest.list, quest), class:"questDetail_link", remote: true %>
+      
+　　　　　　 <!--クエスト完了後＆依頼者だけが押せるクエスト評価ボタン　-->
+　　　　　　<% if @quest.quest_status == "進行中" && @user.id == current_user.id%>
+             <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
+              <div class="form-group" id="star">
+                <%= f.label :クエスト評価 %>
+              </div>
+              <script>
+              $('#star').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'quest[rate]',
+                half: true,
+              });
+  　　　         </script>
+             
+         <div class =" btn-set">
+          <div class="text-center"><%= f.submit "更新", class: "btn-stitch-green" %></div>
+            <% end %>
+          <% end %>
+         <div class =" btn-set">
+          <%= link_to 'クエスト詳細', group_list_quest_path(@quest.list.group,quest.list, quest), class:"btn-stitch-blue", remote: true %>
         <% end %>
+        </div>
+        
       </div>
     </div>
   </div>
