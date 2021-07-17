@@ -12,12 +12,12 @@
         <%= form_with model: @quest, url: { action: :create }, html: { class: 'questnewForm' } do |f| %>
           <%= f.hidden_field :list_id, value: @list.id %>
           <div class="questnewForm_quest_title">
-            <%= f.label :quest_title %>
+            <%= f.label :quest_title, "タイトル　" %>
             <%= f.text_field :quest_title, autofocus: true, class: "form-control", placeholder: "クエスト名" %>
           </div>
 
           <div class="questnewForm_quest_detail">
-            <%= f.label :quest_detail %>
+            <%= f.label :quest_detail, "詳細　" %>
             <%= f.text_area :quest_detail, autofocus: true, class: "form-control", placeholder: "クエスト詳細" %>
           </div>
 
@@ -35,8 +35,9 @@
             <%= f.label :prize_money, "賞金(円)" %>
             <%= f.text_field :prize_money, class: "form-control", placeholder: "100" %>
           </div>
-
-          <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
+         <div class ="btn-set">
+          <%= f.submit "作成", class: "btn-stitch-green" %>
+         </div>
         <% end %>
       </div>
     </div>
