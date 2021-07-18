@@ -1,0 +1,46 @@
+ <div class ="container">
+   <h2 class ="mb-4">契約クエスト</h2>
+   <table class ="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>クエストID</th>
+        <th>契約クエスト名</th>
+        <th >依頼者</th>
+        <th>期間</th>
+        <th>ステータス</th>
+        <th>報酬額</th>
+        <th>評価</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+     <% @quests.each do |quest| %>
+      <tr>
+       <td><%= quest.id %></td>
+       <td><%= quest.quest_title %></td>
+       <td><%= quest.user.name%></td>
+       <td><%= "#{quest.start_date}" + "ー" + "#{quest.end_date}" %></td>
+       <td><%= quest.quest_status %></td>
+       <td><%= quest.prize_money.to_s(:delimited, delimiter: ',') rescue 0 %>円</td>
+       <td id="rate_<%= quest.id %>"></td>
+      </tr>
+        <script>
+        $('#rate_<%= quest.id %>').raty({
+          size: 20,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= quest.rate %>,
+        });
+        </script>
+     <% end %>
+    <tbody>
+   </table>
+ 
+ <div class ="record-btn-set">
+  <%= link_to '依頼クエスト一覧', records_client_path, class: "btn-stitch-green", local: true %>
+  <%= link_to 'クエストまとめ一覧', records_path, class: "btn-stitch-grey", local: true %>
+ </div>
+</div>

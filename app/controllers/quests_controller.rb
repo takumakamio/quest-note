@@ -28,16 +28,7 @@ class QuestsController < ApplicationController
 
   def update
     @user = current_user
-    # 契約者がいる場合クエストステータスは進行中
-    # 評価終わり次第ステータスを完了に変更
-      if @quest.contractor_id != nil
-        Quest.update_all(quest_status: "未契約")
-      elsif @quest.contractor_id == nil
-        Quest.update_all(quest_status: "進行中")
-      elsif @quest.rate > 0
-        Quest.update_all(quest_status: "完了")
-      end
-      
+
     if @quest.update_attributes(edit_quest_params)
       redirect_to group_lists_path
     else

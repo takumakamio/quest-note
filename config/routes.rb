@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[edit update]
-  resources :records, only: %i[index]
   resources :calendars, only: %i[index]
+  resources :records, only: %i[index]
+  get 'records/contractor' => 'records#contractor', as: 'records_contractor'
+  get 'records/client' => 'records#client', as: 'records_client'
   post 'groups/:id/confirm' => 'groups#confirm'
   get 'groups/:id/destroy_confirm' => 'groups#destroy_confirm', as: 'group_destroy_confirm'
   get 'groups/:id/withdrawal_confirm' => 'groups#withdrawal_confirm', as: 'group_withdrawal_confirm'

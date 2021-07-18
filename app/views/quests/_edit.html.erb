@@ -2,6 +2,7 @@
   <div class="modal-content">
     <div class="questeditPgae">
       <div class='container'>
+        
         <%= form_with model: @quest, url: { action: :update }, html: { class: 'questeditForm' } do |f| %>
           <% if @quest.errors.any? %>
             <p class="text-danger">タイトルを入力してください</p>
@@ -37,30 +38,30 @@
           </div>
       
 　　　　　　 <!--クエスト完了後＆依頼者だけが押せるクエスト評価ボタン　-->
-　　　　　　<% if @quest.quest_status == "進行中" && @user.id == current_user.id%>
-             <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
-              <div class="form-group" id="star">
-                <%= f.label :クエスト評価 %>
-              </div>
-              <script>
-              $('#star').raty({
-                size     : 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'quest[rate]',
-                half: true,
-              });
-  　　　         </script>
-             
-         <div class =" btn-set">
-          <div class="text-center"><%= f.submit "更新", class: "btn-stitch-green" %></div>
+            <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
+               <% if @quest.quest_status == "進行中" && @user.id == current_user.id%>
+                <div class="form-group" id="star">
+                  <%= f.label :クエスト評価 %>
+                  <%= f.hidden_field :quest_status, value: "完了" %>
+                </div>
+                <script>
+                $('#star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'quest[rate]',
+                  half: true,
+                });
+    　　　         </script>
+               <% end %>
+               <div class =" btn-set">
+                 <div class="text-center"><%= f.submit "更新", class: "btn-stitch-green" %></div>
+                 <%= link_to 'クエスト詳細', group_list_quest_path(@quest.list.group,quest.list, quest), class:"btn-stitch-blue", remote: true %>
+               </div>
             <% end %>
-          <% end %>
-         <div class =" btn-set">
-          <%= link_to 'クエスト詳細', group_list_quest_path(@quest.list.group,quest.list, quest), class:"btn-stitch-blue", remote: true %>
+            
         <% end %>
-        </div>
         
       </div>
     </div>

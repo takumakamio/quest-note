@@ -1,28 +1,44 @@
-<h1>マイレコード</h1>
- <% @quests.each do |quest| %>
-  <div><%= quest.quest_title %></div>
- <% end %>
- <div>こなしたクエスト数<%= @sum_quests %>件</div>
- <div>生涯獲得賞金<%= @sum_prize_money %>円</div>
- <!--Zero division errorを防ぐため例外処理を追加-->
- <div>平均賞金金額<%= @sum_prize_money.div(@sum_quests) rescue 0 %>円</div>
-
- <div class="questContents_listStatus">
-   <div> 平均クエスト評価</div>
-  <div id="rate_<%= @user.id %>"></div>
- </div>
-
-   <script>
-   $('#rate_<%= @user.id %>').raty({
-     size: 20,
-     starOff:  '<%= asset_path('star-off.png') %>',
-     starOn : '<%= asset_path('star-on.png') %>',
-     starHalf: '<%= asset_path('star-half.png') %>',
-     half: true,
-     readOnly: true,
-     score: <%= @sum_rate.div(@sum_quests) rescue 0 %> ,
-   });
-   </script>
-
+<div class ="container mt-5">
+ <h2 class ="mb-4">マイレコード</h2>
+ <table class ="table table-bordered">
+  <thead>
+    <tr>
+      <th class="table-active">依頼したクエスト数</th>
+      <th class="table-active">契約したクエスト数</th>
+      <th class="table-active">獲得賞金</th>
+      <th class="table-active">総支払金額</th>
+      <th class="table-active">収支</th>
+      <th class="table-active">平均クエスト評価</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @sum_client_quests %>件</td>
+        <td><%= @sum_contractor_quests %>件</td>
+        <td><%= "#{@sum_prize_money.to_s(:delimited, delimiter: ',')}円" %></td>
+        <td><%= "#{@sum_paid_money.to_s(:delimited, delimiter: ',')}円" %></td>
+        <td><%= "#{(@sum_prize_money - @sum_paid_money).to_s(:delimited, delimiter: ',')}円" %></td>
+        <td><div id="rate_<%= @user.id %>"></div></td>
+      </tr>
+      
+     <script>
+      $('#rate_<%= @user.id %>').raty({
+        size: 20,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= @sum_rate.div(@sum_quests) rescue 0 %> ,
+      });
+     </script>
+   
+  </tbody>
+ </table>
+  <div class ="record-btn-set">
+   <%= link_to '依頼クエスト一覧', records_client_path, class: "btn-stitch-green", local: true %>
+   <%= link_to '契約クエスト一覧', records_contractor_path, class: "btn-stitch-blue", local: true %>
+  </div>
+</div>
 
 
