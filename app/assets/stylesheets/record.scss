@@ -1,4 +1,85 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  max-height: 70vh;
+  overflow-y: scroll;
+  table {
+    text-align: center;
+    border-collapse: collapse
+  }
+}
 
+.record-btn-set {
+  margin: 50px 0 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn-stitch-blue {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px #668ad8;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-blue:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-red {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: red;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px red;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-red:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-green {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: green;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px green;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-green:hover {
+    border: dotted 1px #FFF;
+  }
+  
+  .btn-stitch-grey {
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: grey;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 3px grey;
+    border: dashed 1px #FFF;
+  }
+  
+  .btn-stitch-grey:hover {
+    border: dotted 1px #FFF;
+  }
+}
+
+.contractor-table {
+  width: 70%;
+}
