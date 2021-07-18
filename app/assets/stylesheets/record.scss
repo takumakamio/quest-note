@@ -1,9 +1,9 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.container {
-  max-height: 70vh;
-  overflow-y: scroll;
+.recordWapper {
+    max-height: 70vh;
+    overflow-y: scroll;
   table {
     text-align: center;
     border-collapse: collapse
