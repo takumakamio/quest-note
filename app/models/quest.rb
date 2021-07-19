@@ -2,7 +2,7 @@ class Quest < ApplicationRecord
   belongs_to :user
   belongs_to :list
 
-  validates :quest_title, presence:{ message: 'は１文字以上入力してください。' }
+  validates :quest_title, presence:true
   validate :start_end_check
   validates :rate, numericality: {
     less_than_or_equal_to: 5,

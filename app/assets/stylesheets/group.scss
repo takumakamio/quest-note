@@ -45,13 +45,12 @@
 
 .headline{
   display: flex;
-  justify-content: center;
-  background: green;
-  color: white;
-  width: 150px;
+  justify-content: flex-start;
+  color: green;
   border-radius: 5%;
   margin: 20px 40px 20px;
   padding: 5px;
+  font-weight: bold;
 }
 
 
@@ -81,13 +80,7 @@
 
 // グループ詳細
 // メンバー一覧
-.headline{
-  background: green;
-  color: white;
-  border-radius: 5%;
-  // margin: 0 40px 20px;
-  padding: 5px;
-}
+
 .subline {
   font-size: 150%;
   margin-left: 50px;
