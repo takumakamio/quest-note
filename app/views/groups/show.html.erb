@@ -1,12 +1,10 @@
 <!--bootstrap modalを呼び出すためにid指定して非同期化を実装-->
 <div class="container">
  <div id="group-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
- 
     <%= link_to group_lists_path(@group) do %>
      <h3 class="headline"><%= @group.group_name %></h3>
     <% end %>
      <h5 class="subline">Member (<%= @group_users.count %>) </h5>
-     
    <div class="groupShow">
       <% @group_users.each do |group_user| %>
       <div class="card">
@@ -26,7 +24,7 @@
       <% end %>
    </div>
    <div class= "bottom-container">
-       
+
     <div class="memberNew">
       <h5>メンバーを追加する</h5>
       <%= form_with url: {controller: "groups", action: "confirm" } do |f| %>

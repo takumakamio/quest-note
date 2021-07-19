@@ -4,9 +4,9 @@
   <table class ="table table-bordered">
    <thead>
      <tr>
-       <th class="table-active">依頼したクエスト数</th>
-       <th class="table-active">契約したクエスト数</th>
-       <th class="table-active">獲得賞金</th>
+       <th class="table-active">依頼クエスト数</th>
+       <th class="table-active">契約クエスト数</th>
+       <th class="table-active">総獲得賞金</th>
        <th class="table-active">総支払金額</th>
        <th class="table-active">収支</th>
        <th class="table-active">平均クエスト評価</th>
@@ -30,7 +30,7 @@
          starHalf: '<%= asset_path('star-half.png') %>',
          half: true,
          readOnly: true,
-         score: <%= @sum_rate.div(@sum_quests) rescue 0 %> ,
+         score: <%= @sum_rate.div(@sum_contractor_quests) rescue 0 %> ,
        });
       </script>
     

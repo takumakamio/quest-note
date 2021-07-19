@@ -1,15 +1,12 @@
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
-        <% if flash[:alert] %>
-          <div class="alert alert-danger"><%= flash[:alert] %></div>
-        <% end %>
     <div class="questnewPgae">
       <div class='container'>
+        <%= form_with model: @quest, url: { action: :create }, html: { class: 'questnewForm' } do |f| %>
           <% if @quest.errors.any? %>
-            <p class="text-danger">タイトルを入力してください</p>
+            <p class="text-danger">タイトルを入力してください</br>または開始日より遅い最終日を入力してください</p>
           <% end %>
           
-        <%= form_with model: @quest, url: { action: :create }, html: { class: 'questnewForm' } do |f| %>
           <%= f.hidden_field :list_id, value: @list.id %>
           <div class="questnewForm_quest_title">
             <%= f.label :quest_title, "タイトル　" %>
