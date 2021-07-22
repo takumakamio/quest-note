@@ -80,7 +80,6 @@
           <!--契約者と依頼者だけキャンセルできるように処理-->
           <% if @quest.contractor_id.present? && @quest.rate == 0 %>
            <% if @quest.contractor_id == current_user.id || @quest.user.id == current_user.id  %>
-          <!--契約者と依頼者だけがキャンセルできるよう処理-->
                <%= form_with model: @quest, url: { action: :update }, local: true do |f| %>
                <%= f.hidden_field :contractor_id, value: nil %>
                <%= f.hidden_field :contractor_name, value: nil %>
