@@ -36,7 +36,7 @@
 
           <div class="questContents_listStatus">
             <div> <%= label :prize_money, "賞金"%></div>
-            <div><%= @quest.prize_money %></div>
+            <div><%= @quest.prize_money %>円</div>
           </div>
 
           <div class="questContents_listStatus">
@@ -48,10 +48,11 @@
             <div> <%= label :is_paid, "支払いステータス"%></div>
             <div><%= @quest.is_paid %></div>
           </div>
-            <div class="questContents_listStatus">
-              <div> <%= label :rate, "クエスト評価"%></div>
-             <div id="rate_<%= @quest.id %>"></div>
-            </div>
+          
+          <div class="questContents_listStatus">
+            <div> <%= label :rate, "クエスト評価"%></div>
+           <div id="rate_<%= @quest.id %>"></div>
+          </div>
 
               <script>
               $('#rate_<%= @quest.id %>').raty({
@@ -64,64 +65,42 @@
                 score: <%= @quest.rate %>,
               });
               </script>
-
+              
+        <div class= "btn-set">
          <!--仕事引受のためのボタン-->
           <% if @quest.contractor_id.nil? && @quest.user.id != current_user.id %>
-          <div class="questContents_btnArea">
-           <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
-           <%= f.hidden_field :contractor_id, value: @user.id %>
-           <%= f.hidden_field :contractor_name, value: @user.name %>
-          <div class="text-center"><%= f.submit "仕事を引き受ける" %></div>
-          <% end %>
+           <%= form_with model: @quest, url: { action: :update }, local: true do |f| %>
+             <%= f.hidden_field :contractor_id, value: @user.id %>
+             <%= f.hidden_field :contractor_name, value: @user.name %>
+             <%= f.hidden_field :quest_status, value: "進行中"  %>
+             <%= f.submit "仕事を引き受ける" ,class: "btn-stitch-green" %>
+           <% end %>
           <% end %>
           <!--契約解除のためのボタン-->
           <!--契約者と依頼者だけキャンセルできるように処理-->
-          <% if @quest.contractor_id.present? %>
-          <% if @quest.contractor_id == current_user.id || @quest.user.id == current_user.id  %>
-          <!--契約されているときだけキャンセルできるよう処理-->
-
-             <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
-             <%= f.hidden_field :contractor_id, value: nil %>
-             <%= f.hidden_field :contractor_name, value: nil %>
-               <div class="text-center"><%= f.submit "仕事をキャンセルする" %></div>
-            <% end %>
+          <% if @quest.contractor_id.present? && @quest.rate == 0 %>
+           <% if @quest.contractor_id == current_user.id || @quest.user.id == current_user.id  %>
+               <%= form_with model: @quest, url: { action: :update }, local: true do |f| %>
+               <%= f.hidden_field :contractor_id, value: nil %>
+               <%= f.hidden_field :contractor_name, value: nil %>
+               <%= f.hidden_field :quest_status, value: "未契約" %>
+               <div class ="text-center"><%= f.submit "仕事をキャンセル" ,class: "btn-stitch-grey" %></div>
+             <% end %>
            <% end %>
           <% end %>
-            <%= link_to 'クエスト一覧に戻る', group_lists_path, class: "edit_btn" %>
+          
+          　<!--依頼者だけが編集削除できるように条件分岐-->
             <% if @quest.user.id == current_user.id %>
-            <%= link_to '編集する', edit_group_list_quest_path(@quest.list.group,@quest.list, @quest), class: "edit_btn", remote: true %>
-            <%= link_to '削除をする', group_list_quest_path(@quest.list.group), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
-            <% end %>
-
-
-　　　　　　 <!--クエスト完了後＆依頼者だけが押せるクエスト評価ボタン　-->
-　　　　　　<% if @quest.quest_status == "進行中" && @user.id == current_user.id%>
-            <%= form_with model: @quest, url: { action: :update }, html: { class: 'questnewForm' }, local: true do |f| %>
-              <div class="form-group" id="star">
-                <%= f.label :rate %>
-              </div>
-              <script>
-              $('#star').raty({
-                size     : 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'quest[rate]',
-                half: true,
-              });
-              </script>
-
-              <div class="form-group">
-                <%= f.submit class: 'btn btn-success' %>
-              </div>
-            <% end %>
+             <%= link_to '編集', edit_group_list_quest_path(@quest.list.group,@quest.list, @quest), class: "btn-stitch-blue", remote: true %>
+             <%= link_to '削除', group_list_quest_path(@quest.list.group), class: "btn-stitch-red", method: :delete, data: { confirm: "このクエストを削除して大丈夫ですか?" } %>
+             <%= link_to 'カレンダー', calendars_path, class: "btn-stitch-green"%>
             <% end %>
 
             <!--クエスト完了後＆契約者だけが押せる支払い完了済みのボタン-->
             <% if @quest.quest_status == "完了" && @quest.contractor_id == current_user.id%>
-              <%= link_to "支払い済みにする", group_list_quest_payment_path, method: :patch,  class: "btn btn-sm btn-danger",
+              <%= link_to "支払い済みにする", group_list_quest_payment_path, method: :patch,  class: "btn-stitch-green",
               data: { confirm: "支払い済みにしてクエストを完了させますか?" } %>
-             <% end %>
+            <% end %>
           </div>
         </div>
       </div>

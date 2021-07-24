@@ -2,19 +2,20 @@
   <div class="modal-content">
     <div class="questnewPgae">
       <div class='container'>
-          <% if @quest.errors.any? %>
-            <p class="text-danger">タイトルを入力してください</p>
-          <% end %>
         <%= form_with model: @quest, url: { action: :create }, html: { class: 'questnewForm' } do |f| %>
+          <% if @quest.errors.any? %>
+            <p class="text-danger">タイトルを入力してください</br>または開始日より遅い最終日を入力してください</p>
+          <% end %>
+          
           <%= f.hidden_field :list_id, value: @list.id %>
           <div class="questnewForm_quest_title">
-            <%= f.label :quest_title %>
-            <%= f.text_field :quest_title, autofocus: true, class: "form-control", placeholder: "カード名" %>
+            <%= f.label :quest_title, "タイトル　" %>
+            <%= f.text_field :quest_title, autofocus: true, class: "form-control", placeholder: "クエスト名" %>
           </div>
 
           <div class="questnewForm_quest_detail">
-            <%= f.label :quest_detail %>
-            <%= f.text_area :quest_detail, autofocus: true, class: "form-control", placeholder: "詳細" %>
+            <%= f.label :quest_detail, "詳細　" %>
+            <%= f.text_area :quest_detail, autofocus: true, class: "form-control", placeholder: "クエスト詳細" %>
           </div>
 
           <div class="questnewForm_quest_detail">
@@ -28,16 +29,12 @@
           </div>
 
           <div class="questnewForm_quest_detail">
-            <%= f.label :quest_status, "ステータス　" %>
-            <%= f.select :quest_status, Quest.quest_statuses.keys%>
-          </div>
-
-          <div class="questnewForm_quest_detail">
             <%= f.label :prize_money, "賞金(円)" %>
             <%= f.text_field :prize_money, class: "form-control", placeholder: "100" %>
           </div>
-
-          <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
+         <div class ="btn-set">
+          <%= f.submit "作成", class: "btn-stitch-green" %>
+         </div>
         <% end %>
       </div>
     </div>

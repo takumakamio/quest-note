@@ -1,0 +1,39 @@
+.userEdit {
+  padding-top: 30px;
+    .title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+   .edit-profile {
+    .profile-img {
+      margin: 10px auto;
+      text-align: center;
+      img {
+      border-radius: 10%;
+      }
+    }
+    .form-group {
+      max-width: 300px;
+      margin: 10px auto 30px;
+        .form-control {
+          background: #f6f8fa;
+        }
+        img {
+          object-fit: cover;
+          margin: 0 auto 10px;
+          border-radius: 70%;
+          border-color: green;
+          max-width: 300px;
+        }
+        img:hover {
+          opacity: 0.6;
+          transition-duration: 0.3s;
+        }
+     }
+    .profile-btn {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

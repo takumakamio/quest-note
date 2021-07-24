@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to edit_user_path(@user), success: '更新に成功しました。'
+      redirect_to edit_user_path(@user), notice: '更新に成功しました。'
     else
-      render 'edit'
+      redirect_to edit_user_path(@user), alert: '名前を入力してください。'
     end
   end
 
@@ -27,13 +27,9 @@ class UsersController < ApplicationController
 
   # URL直打ち禁止
   def ensure_correct_user
-    unless User.find_by(id: params[:id]).nil?
-      @user = User.find(params[:id])
-      unless @user == current_user
-      redirect_to edit_user_path(current_user.id)
-      end
-    else
-      redirect_to edit_user_path(current_user.id)
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to edit_user_path(current_user)
     end
   end
 end

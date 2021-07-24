@@ -1,12 +1,11 @@
 class GroupsController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:show, :update, :destroy, :confirm, :destroy_confirm, :withdrawal_confirm, :withdrawal]
+  before_action :ensure_correct_user,only: %i[show update destroy confirm destroy_confirm withdrawal_confirm withdrawal]
 
   def index
     @my_groups = current_user.groups
     @group = Group.new
-    #<< current userをグループにプッシュ
+    # << current userをグループにプッシュ
     @group.users << current_user
   end
 
@@ -21,8 +20,7 @@ class GroupsController < ApplicationController
       @my_groups = current_user.groups
       @group = Group.new
       @group.users << current_user
-      flash.now[:warning] = 'グループ名を入力してください。'
-      render 'index'
+      redirect_to groups_path, alert: 'グループ名を入力してください。'
     end
   end
 
@@ -36,29 +34,26 @@ class GroupsController < ApplicationController
     if params[:email].present?
       @user = User.find_by(email: params[:email])
       # 入力されたEmailのuserは存在するか
+      @group = Group.find(params[:id])
       if @user.present?
-        @group = Group.find(params[:id])
         @group_user = GroupUser.where(user_id: @user.id).where(group_id: @group.id)
 
         # 入力されたEmailのuserがすでに存在しないか
         if @group_user.present?
           @group = Group.find(params[:id])
           @group_users = @group.group_users
-          flash.now[:warning] = "#{@user.name}さんはすでに登録済みです"
-          render 'show'
+          redirect_to group_path(@group), alert: "#{@user.name}さんはすでに登録済みです"
         end
       else
-        @group = Group.find(params[:id])
         @group_users = @group.group_users
-        flash.now[:warning] = "メールアドレス: #{params[:email]} のメンバーは見つかりません。"
-        render 'show'
+        redirect_to group_path(@group), alert: "メールアドレス: #{params[:email]} のメンバーは見つかりません。"
       end
 
     else
       @group = Group.find(params[:id])
       @group_users = @group.group_users
-      flash.now[:warning] = '登録したいメンバーのメールアドレスを入力してください'
-      render 'show'
+      flash.now[:alert] = 
+      redirect_to group_path(@group), alert: '登録したいメンバーのメールアドレスを入力してください'
     end
   end
 
@@ -67,9 +62,9 @@ class GroupsController < ApplicationController
     group = Group.find(params[:id])
 
     if group.add_user(@user)
-      redirect_to group_path(group), success: "#{@user.name}さんをメンバーに追加しました"
+      redirect_to group_path(group), notice: "#{@user.name}さんをメンバーに追加しました"
     else
-      redirect_to group_path(group), warning: "#{@user.name}さんはすでにメンバーに登録されています。"
+      redirect_to group_path(group), alert: "#{@user.name}さんはすでにメンバーに登録されています。"
     end
   end
 
@@ -78,7 +73,7 @@ class GroupsController < ApplicationController
 
     if group.admin_user == current_user.id
       group.destroy
-      redirect_to groups_path, success: "#{group.group_name}は削除されました。"
+      redirect_to groups_path, notice: "#{group.group_name}は削除されました。"
     else
       redirect_to groups_path, danger: "#{group.group_name}の削除権限がありません(※グループはグループの作成者しか削除できません)。"
     end
@@ -93,9 +88,9 @@ class GroupsController < ApplicationController
     group_user = GroupUser.find_by(group_id: group, user_id: current_user)
 
     if group_user.destroy
-      redirect_to groups_path, success: "#{group.group_name}から退会しました。"
+      redirect_to groups_path, notice: "#{group.group_name}から退会しました。"
     else
-      redirect_to group_path(group), warning: "#{group.group_name}から退会できませんでした。"
+      redirect_to group_path(group), alert: "#{group.group_name}から退会できませんでした。"
     end
   end
 
@@ -105,16 +100,16 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:group_name, :user)
   end
 
-# 　URL直打ち禁止
+  # 　URL直打ち禁止
   def ensure_correct_user
-    unless Group.find_by(id: params[:id]).nil?
+    if Group.find(params[:id]).nil?
+      redirect_to groups_path
+    else
       @group = Group.find(params[:id])
       @group_user = GroupUser.where(group_id: @group.id)
-      unless @group_user.where(user_id: current_user).present?
-        redirect_to groups_path
-      end
-    else
-      redirect_to groups_path
+      redirect_to groups_path unless @group_user.where(user_id: current_user).present?
     end
   end
 end
+
+
