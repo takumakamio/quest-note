@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.score = Language.get_data(user_params[:introduction])  #この行を追加
     if @user.update(user_params)
       redirect_to edit_user_path(@user), notice: '更新に成功しました。'
     else
