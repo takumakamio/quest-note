@@ -10,64 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_704_032_349) do
-  create_table 'group_users', force: :cascade do |t|
-    t.integer 'group_id'
-    t.integer 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['group_id'], name: 'index_group_users_on_group_id'
-    t.index ['user_id'], name: 'index_group_users_on_user_id'
+ActiveRecord::Schema.define(version: 2021_08_01_105116) do
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
-  create_table 'groups', force: :cascade do |t|
-    t.string 'group_name', null: false
-    t.integer 'admin_user', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "groups", force: :cascade do |t|
+    t.string "group_name", null: false
+    t.integer "admin_user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'lists', force: :cascade do |t|
-    t.integer 'group_id'
-    t.integer 'user_id'
-    t.string 'title', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['group_id'], name: 'index_lists_on_group_id'
-    t.index ['user_id'], name: 'index_lists_on_user_id'
+  create_table "lists", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_lists_on_group_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
-  create_table 'quests', force: :cascade do |t|
-    t.integer 'user_id'
-    t.integer 'list_id'
-    t.string 'quest_title', null: false
-    t.text 'quest_detail'
-    t.integer 'quest_status', default: 0
-    t.integer 'prize_money'
-    t.boolean 'is_paid', default: false
-    t.integer 'contractor_id'
-    t.string 'contractor_name'
-    t.float 'rate', default: 0.0
-    t.date 'start_date'
-    t.date 'end_date'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['list_id'], name: 'index_quests_on_list_id'
-    t.index ['user_id'], name: 'index_quests_on_user_id'
+  create_table "quests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "list_id"
+    t.string "quest_title", null: false
+    t.text "quest_detail"
+    t.integer "quest_status", default: 0
+    t.integer "prize_money"
+    t.boolean "is_paid", default: false
+    t.integer "contractor_id"
+    t.string "contractor_name"
+    t.float "rate", default: 0.0
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_quests_on_list_id"
+    t.index ["user_id"], name: "index_quests_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.string 'name', null: false
-    t.text 'introduction'
-    t.string 'image_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.text "introduction"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end

@@ -21,6 +21,7 @@
         <div class="form-group">
           <p>紹介文</p>
           <%= f.text_area :introduction, :placeholder =>"#{@user.introduction}", class:"form-control"  %></br>
+          <span class="sentiment-score">紹介文の感情分析スコア : <%= @user.score %></span>
           <div>所属グループ数 : <%= @user.group_users.count %></div>
         </div>
 
