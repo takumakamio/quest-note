@@ -79,6 +79,6 @@ group :development do
 end
 
 gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+group :production do
+  gem 'mysql2'
+end
